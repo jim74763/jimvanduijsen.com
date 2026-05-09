@@ -9,7 +9,7 @@ const navLinks = [
   },
   {
     label: "About",
-    href: "/contact",
+    href: "/about",
   },
 ];
 

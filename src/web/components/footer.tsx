@@ -11,7 +11,7 @@ const footerLinks = [
 
 export const Footer = () => {
   return (
-    <footer className="absolute bottom-0 left-px right-[-1px] flex flex-wrap items-center justify-between gap-y-2.5 border-t border-black/10 p-16">
+    <footer className="flex flex-wrap items-center justify-between gap-y-2.5 border-t border-current/10 p-16">
       <a
         href="/"
         className="w-[148px] whitespace-nowrap text-center text-xl font-semibold leading-[1.45] tracking-[-0.1px]"

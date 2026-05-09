@@ -9,7 +9,8 @@
     "cf-typegen": "wrangler types --env-interface CloudflareBindings"
   },
   "dependencies": {
-    "hono": "^4.12.18"
+    "hono": "^4.12.18",
+    "lucide-react": "^1.14.0"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.2.4",
