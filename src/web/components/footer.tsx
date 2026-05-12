@@ -1,4 +1,4 @@
-import { footerLinks, footerMetaItems } from "../content/footer";
+import { footerLinks, footerMetaItems } from "../content/footer.js";
 
 export const Footer = () => {
   return (

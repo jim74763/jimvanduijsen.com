@@ -1,7 +1,7 @@
 import { Hono } from "hono";
-import { aboutPage } from "./web/pages/about";
-import { contactPage } from "./web/pages/contact";
-import { homePage } from "./web/pages/home";
+import { aboutPage } from "./web/pages/about.js";
+import { contactPage } from "./web/pages/contact.js";
+import { homePage } from "./web/pages/home.js";
 
 const app = new Hono();
 const UMAMI_ORIGIN = "https://umami.app.jimvd.xyz";

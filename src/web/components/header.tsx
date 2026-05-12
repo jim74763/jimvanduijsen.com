@@ -1,4 +1,4 @@
-import { navLinks } from "../content/header";
+import { navLinks } from "../content/header.js";
 
 export const Header = () => {
   return (

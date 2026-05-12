@@ -1,6 +1,6 @@
-import { Footer } from "../components/footer";
-import { Header } from "../components/header";
-import { renderPage } from "../document";
+import { Footer } from "../components/footer.js";
+import { Header } from "../components/header.js";
+import { renderPage } from "../document.js";
 
 const Contact = () => {
   return (
