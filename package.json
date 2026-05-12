@@ -2,12 +2,10 @@
   "name": "jimvanduijsen.com",
   "type": "module",
   "scripts": {
-    "build": "pnpm build:css && wrangler deploy --dry-run --outdir dist",
+    "build": "pnpm build:css",
     "build:css": "tailwindcss -i ./src/styles.css -o ./public/assets/app.css --minify",
     "watch:css": "tailwindcss -i ./src/styles.css -o ./public/assets/app.css --watch=always",
-    "dev": "concurrently \"pnpm watch:css\" \"wrangler dev\"",
-    "deploy": "pnpm build && wrangler deploy --minify",
-    "cf-typegen": "wrangler types --env-interface CloudflareBindings"
+    "dev": "concurrently \"pnpm watch:css\" \"wrangler dev\""
   },
   "dependencies": {
     "hono": "^4.12.18",
