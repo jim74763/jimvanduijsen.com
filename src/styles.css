@@ -1,3 +1,37 @@
 @import "tailwindcss";
 
 @source "./**/*.{ts,tsx}";
+
+@layer components {
+  .project-disclosure > summary {
+    list-style: none;
+  }
+
+  .project-disclosure > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .project-disclosure-icon {
+    transition: transform 150ms ease;
+  }
+
+  .project-disclosure[open] .project-disclosure-icon {
+    transform: rotate(180deg);
+  }
+
+  .project-disclosure-content > * + * {
+    margin-top: 0.75rem;
+  }
+
+  .project-disclosure-content h3 {
+    color: #000000;
+    font-weight: 600;
+  }
+
+  .project-disclosure-content a {
+    color: #000000;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+}

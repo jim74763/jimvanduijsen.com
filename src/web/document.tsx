@@ -37,6 +37,12 @@ export const renderPage = ({
         {description ? <meta name="description" content={description} /> : null}
         {metadata}
         <link rel="stylesheet" href="/assets/app.css" />
+        <script
+          defer
+          src="/u/script.js"
+          data-website-id="eda141ce-7cde-4d99-b20b-6558e5e5b43c"
+          data-host-url="/u"
+        />
       </head>
       <body>{children}</body>
     </html>

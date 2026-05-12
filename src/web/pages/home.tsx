@@ -1,52 +1,6 @@
 import { Footer } from "../components/footer";
+import { links, profileImage, socials } from "../content/home";
 import { renderPage } from "../document";
-
-const profileImage =
-  "https://www.jimvanduijsen.com/_assets/v11/033f9851c552fb3057935c1136335c69e64d2e53.png";
-
-const socials = [
-  {
-    label: "Instagram",
-    href: "https://umami.app.jimvd.xyz/q/CBBLbE6Vt",
-    text: "jim_p5456",
-    icon: "/assets/icons/instagram.svg",
-  },
-  {
-    label: "X(Twitter)",
-    href: "https://umami.app.jimvd.xyz/q/cIABHJT90",
-    text: "@p35555481",
-    icon: "/assets/icons/x.svg",
-  },
-  {
-    label: "Linkedin",
-    href: "https://umami.app.jimvd.xyz/q/fbyIKSsDH",
-    text: "jim-van-duijsen",
-    icon: "/assets/icons/linkedin.svg",
-  },
-];
-
-const links = [
-  {
-    label: "Done for you AI coworker",
-    href: "https://umami.app.jimvd.xyz/q/6toPyYOJO",
-    isExternal: true,
-  },
-  {
-    label: "Website templates",
-    href: "https://umami.app.jimvd.xyz/q/0lfWDwcxL",
-    isExternal: true,
-  },
-  {
-    label: "Contact",
-    href: "/contact",
-    isExternal: false,
-  },
-  {
-    label: "Web agency",
-    href: "https://umami.app.jimvd.xyz/q/77K9YR2vm",
-    isExternal: true,
-  },
-];
 
 export default function JimLandingPage() {
   return (

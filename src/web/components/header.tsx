@@ -1,17 +1,4 @@
-const navLinks = [
-  {
-    label: "Templates",
-    href: "https://umami.app.jimvd.xyz/q/0lfWDwcxL",
-  },
-  {
-    label: "Contact",
-    href: "/contact",
-  },
-  {
-    label: "About",
-    href: "/about",
-  },
-];
+import { navLinks } from "../content/header";
 
 export const Header = () => {
   return (

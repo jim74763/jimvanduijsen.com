@@ -1,13 +1,4 @@
-const footerLinks = [
-  {
-    label: "Privacy and legal",
-    href: "https://umami.app.jimvd.xyz/q/4ptT22vvv",
-  },
-  {
-    label: "hello@jimvanduijsen.nl",
-    href: "mailto:hello@jimvanduijsen.nl",
-  },
-];
+import { footerLinks, footerMetaItems } from "../content/footer";
 
 export const Footer = () => {
   return (
@@ -19,7 +10,7 @@ export const Footer = () => {
         Jim Van Duijsen
       </a>
 
-      <nav className="flex h-[29px] items-center justify-center gap-8">
+      <nav className="flex max-w-full flex-wrap items-center justify-center gap-x-8 gap-y-2.5 max-sm:flex-col max-sm:gap-x-0">
         {footerLinks.map((link) => (
           <a
             key={link.label}
@@ -30,13 +21,14 @@ export const Footer = () => {
           </a>
         ))}
 
-        <span className="whitespace-nowrap text-center text-base font-medium leading-[1.45] tracking-[-0.08px]">
-          KVK: 42038746
-        </span>
-
-        <span className="whitespace-nowrap text-center text-base font-medium leading-[1.45] tracking-[-0.08px]">
-          BTW: NL005447716B55
-        </span>
+        {footerMetaItems.map((item) => (
+          <span
+            key={item.label}
+            className="whitespace-nowrap text-center text-base font-medium leading-[1.45] tracking-[-0.08px]"
+          >
+            {item.label}
+          </span>
+        ))}
       </nav>
     </footer>
   );
