@@ -1,6 +1,6 @@
 import type { Child } from "hono/jsx";
 
-const SITE_URL = "https://jimvanduijsen.com";
+const SITE_URL = "https://www.jimvanduijsen.com";
 const OG_IMAGE = `${SITE_URL}/assets/og-image.png`;
 
 type PageOptions = {
