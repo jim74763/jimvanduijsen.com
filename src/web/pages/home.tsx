@@ -71,6 +71,8 @@ export default function JimLandingPage() {
 export const homePage = () => {
   return renderPage({
     title: "Jim van Duijsen",
+    description: "Jim van Duijsen, web developer and building in private",
+    canonicalPath: "/",
     children: <JimLandingPage />,
   });
 };

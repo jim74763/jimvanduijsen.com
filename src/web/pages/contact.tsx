@@ -26,6 +26,8 @@ export default Contact;
 export const contactPage = () => {
   return renderPage({
     title: "Contact | Jim van Duijsen",
+    description: "Get in touch with Jim van Duijsen.",
+    canonicalPath: "/contact",
     children: <Contact />,
   });
 };
