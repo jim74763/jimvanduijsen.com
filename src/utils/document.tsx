@@ -43,6 +43,7 @@ export const renderPage = ({
         <title>{title}</title>
         <meta name="title" content={title} />
         {description ? <meta name="description" content={description} /> : null}
+        <meta name="author" content="Jim van Duijsen" />
         <meta name="robots" content="index,follow" />
         <link rel="canonical" href={canonicalUrl} />
         <meta property="og:site_name" content="Jim van Duijsen" />

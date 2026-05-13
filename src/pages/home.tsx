@@ -1,10 +1,13 @@
 import { Footer } from "../components/footer.js";
+import { JsonLd } from "../components/json-ld.js";
 import { links, profileImage, socials } from "../content/home.js";
+import { homeSchema } from "../utils/schema.org/home.js";
 import { renderPage } from "../utils/document.js";
 
 export default function JimLandingPage() {
   return (
     <main className="flex min-h-screen w-full flex-col overflow-x-hidden bg-[linear-gradient(180deg,#666_0%,#4d4d4d_25%,#333_50%,#1a1a1a_75%,#0d0d0d_87.5%,#060606_93.75%,#000_100%)] text-white">
+      <JsonLd schema={homeSchema} />
       <div className="mx-auto flex w-full flex-1 max-w-[1280px] items-center justify-center gap-[30px] px-6 py-12 md:px-24 max-lg:flex-col">
         <section className="flex w-full max-w-[529px] flex-shrink-0 flex-col items-center gap-[15px] py-px">
           <div className="h-[428px] w-full overflow-hidden rounded-[15px]">
@@ -68,10 +71,12 @@ export default function JimLandingPage() {
   );
 }
 
+
 export const homePage = () => {
   return renderPage({
-    title: "Jim van Duijsen",
-    description: "Jim van Duijsen, web developer and building in private",
+    title: "Jim van Duijsen — AI Agent Developer & Freelance Web Developer",
+    description:
+      "Jim van Duijsen builds custom AI agents and modern websites for businesses. Founder of TJB AI and Jimvd Web Agency. Available for freelance projects.",
     canonicalPath: "/",
     children: <JimLandingPage />,
   });
