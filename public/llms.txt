@@ -1,0 +1,16 @@
+# Jim van Duijsen
+
+> Freelance developer and entrepreneur building AI agents, web apps, and websites for businesses.
+
+Jim van Duijsen is a developer based in the Netherlands. He runs TJB AI (an agency building custom AI agents for businesses), Jimvd Web Agency (a web agency delivering modern websites and web apps), and takes on freelance development work for clients directly.
+
+## Pages
+
+- [Home](https://www.jimvanduijsen.com/): Overview and links
+- [About](https://www.jimvanduijsen.com/about): Projects and background
+- [Contact](https://www.jimvanduijsen.com/contact): Get in touch
+
+## Projects
+
+- [TJB AI](https://www.jimvanduijsen.com/tjb-ai-redir): Custom AI agent systems for businesses — practical automation built around real workflows
+- [Jimvd Web Agency](https://jimvd.xyz): Full-service web agency offering design, development, SEO, hosting, and maintenance using Next.js and Vercel

@@ -1,18 +1,15 @@
 import { Hono } from "hono";
-import { aboutPage } from "./web/pages/about.js";
-import { contactPage } from "./web/pages/contact.js";
-import { homePage } from "./web/pages/home.js";
+import { aboutPage } from "./pages/about.js";
+import { contactPage } from "./pages/contact.js";
+import { homePage } from "./pages/home.js";
+import { sitemap } from "./utils/sitemap.js";
+import { proxyUmami } from "./utils/umami-proxy.js";
 
 const app = new Hono();
-const UMAMI_ORIGIN = "https://umami.app.jimvd.xyz";
 
-const proxyUmami = (request: Request, upstreamPath: string) => {
-  const incomingUrl = new URL(request.url);
-  const upstreamUrl = new URL(upstreamPath, UMAMI_ORIGIN);
-  upstreamUrl.search = incomingUrl.search;
-
-  return fetch(new Request(upstreamUrl.toString(), request));
-};
+app.get("/sitemap.xml", (c) =>
+  c.text(sitemap(), 200, { "Content-Type": "application/xml" }),
+);
 
 app.get("/", (c) => c.html(homePage()));
 

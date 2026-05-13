@@ -1,7 +1,7 @@
 import { Footer } from "../components/footer.js";
 import { Header } from "../components/header.js";
 import { projects } from "../content/about.js";
-import { renderPage } from "../document.js";
+import { renderPage } from "../utils/document.js";
 
 export default function PortfolioPage() {
   return (

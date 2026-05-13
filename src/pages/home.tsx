@@ -1,6 +1,6 @@
 import { Footer } from "../components/footer.js";
 import { links, profileImage, socials } from "../content/home.js";
-import { renderPage } from "../document.js";
+import { renderPage } from "../utils/document.js";
 
 export default function JimLandingPage() {
   return (
