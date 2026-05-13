@@ -5,7 +5,8 @@
     "build": "pnpm build:css",
     "build:css": "tailwindcss -i ./src/styles.css -o ./public/assets/app.css --minify",
     "watch:css": "tailwindcss -i ./src/styles.css -o ./public/assets/app.css --watch=always",
-    "dev": "concurrently \"pnpm watch:css\" \"wrangler dev\""
+    "dev": "concurrently \"pnpm watch:css\" \"wrangler pages dev\"",
+    "deploy": "pnpm build:css && wrangler pages deploy"
   },
   "dependencies": {
     "hono": "^4.12.18",
