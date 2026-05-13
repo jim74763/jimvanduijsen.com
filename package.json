@@ -6,15 +6,20 @@
     "watch:css": "tailwindcss -i ./src/styles.css -o ./public/assets/app.css --watch=always",
     "dev": "concurrently \"pnpm watch:css\" \"wrangler dev\"",
     "deploy": "pnpm build:css && wrangler deploy --minify",
-    "cf-typegen": "wrangler types --env-interface CloudflareBindings"
+    "cf-typegen": "wrangler types --env-interface CloudflareBindings",
+    "lint": "biome check src",
+    "format": "biome format --write src",
+    "prepare": "husky"
   },
   "dependencies": {
     "hono": "^4.12.18",
     "lucide-react": "^1.14.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.4.15",
     "@tailwindcss/cli": "^4.2.4",
     "concurrently": "^9.2.1",
+    "husky": "^9.1.7",
     "tailwindcss": "^4.2.4",
     "wrangler": "^4.4.0"
   }

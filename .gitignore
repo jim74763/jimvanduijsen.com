@@ -1,5 +1,6 @@
 # prod
 dist/
+public/assets/app.css
 
 # dev
 .yarn/

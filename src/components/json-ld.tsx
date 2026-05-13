@@ -1,7 +1,10 @@
 type Props = {
-  schema: string;
+	schema: string;
 };
 
 export const JsonLd = ({ schema }: Props) => (
-  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schema }} />
+	<script
+		type="application/ld+json"
+		dangerouslySetInnerHTML={{ __html: schema }}
+	/>
 );

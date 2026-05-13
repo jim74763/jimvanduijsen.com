@@ -8,7 +8,7 @@ import { proxyUmami } from "./utils/umami-proxy.js";
 const app = new Hono();
 
 app.get("/sitemap.xml", (c) =>
-  c.text(sitemap(), 200, { "Content-Type": "application/xml" }),
+	c.text(sitemap(), 200, { "Content-Type": "application/xml" }),
 );
 
 app.get("/", (c) => c.html(homePage()));
@@ -18,7 +18,7 @@ app.get("/contact", (c) => c.html(contactPage()));
 app.get("/about", (c) => c.html(aboutPage()));
 
 app.get("/tjb-ai-redir", (c) =>
-  c.redirect("https://umami.app.jimvd.xyz/q/4cGtGB35i"),
+	c.redirect("https://umami.app.jimvd.xyz/q/4cGtGB35i"),
 );
 
 app.get("/u/script.js", (c) => proxyUmami(c.req.raw, "/script.js"));
