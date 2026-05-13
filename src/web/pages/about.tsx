@@ -88,6 +88,7 @@ export const aboutPage = () => {
   return renderPage({
     title: "About | Jim van Duijsen",
     description: "Portfolio and background overview.",
+    canonicalPath: "/about",
     children: <PortfolioPage />,
   });
 };
