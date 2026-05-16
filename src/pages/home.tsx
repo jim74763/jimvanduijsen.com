@@ -77,6 +77,7 @@ export const homePage = () => {
 		description:
 			"Jim van Duijsen builds custom AI agents and modern websites for businesses. Founder of TJB AI and Jimvd Web Agency. Available for freelance projects.",
 		canonicalPath: "/",
+		bgDark: true,
 		children: <JimLandingPage />,
 	});
 };
