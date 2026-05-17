@@ -75,7 +75,9 @@ export const renderPage = ({
 					data-host-url="/u"
 				/>
 			</head>
-			<body class={bgDark ? "bg-black" : undefined}>{children}</body>
+			<body style={bgDark ? { backgroundColor: "#000" } : undefined}>
+				{children}
+			</body>
 		</html>
 	);
 };
