@@ -2,7 +2,7 @@ import { navLinks } from "../content/header.js";
 
 export const Header = () => {
 	return (
-		<header className="absolute inset-x-0 top-0 z-10 border-b border-[#858585]/20 bg-white/90">
+		<header className="absolute inset-x-0 top-0 z-10 border-b border-[#858585]/20 bg-white">
 			<input type="checkbox" id="menu-toggle" className="sr-only peer/menu" />
 
 			<div className="flex h-[60px] items-center justify-between px-4 sm:px-16">
@@ -39,6 +39,12 @@ export const Header = () => {
 			</div>
 
 			<nav className="hidden flex-col sm:hidden peer-checked/menu:flex">
+				<a
+					href="/"
+					className="border-t border-[#858585]/20 px-6 py-4 text-base font-medium leading-[1.45] tracking-[-0.08px] transition hover:opacity-60"
+				>
+					Home
+				</a>
 				{navLinks.map((link) => (
 					<a
 						key={link.label}
