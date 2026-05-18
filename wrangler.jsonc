@@ -3,6 +3,9 @@
   "name": "jimvanduijsen-com",
   "main": "src/index.ts",
   "compatibility_date": "2026-05-07",
+  "build": {
+    "command": "pnpm build:css",
+  },
   "assets": {
     "directory": "./public",
   },

@@ -7,6 +7,7 @@ type PageOptions = {
 	title: string;
 	description?: string;
 	canonicalPath?: string;
+	bgDark?: boolean;
 	metadata?: Child;
 	children: Child;
 };
@@ -15,6 +16,7 @@ export const renderPage = ({
 	title,
 	description,
 	canonicalPath = "/",
+	bgDark,
 	metadata,
 	children,
 }: PageOptions) => {
@@ -63,6 +65,7 @@ export const renderPage = ({
 				) : null}
 				<meta name="twitter:image" content={OG_IMAGE} />
 				<meta name="twitter:image:alt" content="Jim van Duijsen" />
+				{bgDark ? <meta name="theme-color" content="#666666" /> : null}
 				{metadata}
 				<link rel="stylesheet" href="/assets/app.css" />
 				<script
@@ -72,7 +75,7 @@ export const renderPage = ({
 					data-host-url="/u"
 				/>
 			</head>
-			<body>{children}</body>
+			<body className={bgDark ? "bg-black" : undefined}>{children}</body>
 		</html>
 	);
 };

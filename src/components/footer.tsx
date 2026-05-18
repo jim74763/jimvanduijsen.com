@@ -2,15 +2,15 @@ import { footerLinks, footerMetaItems } from "../content/footer.js";
 
 export const Footer = () => {
 	return (
-		<footer className="flex flex-wrap items-center justify-between gap-y-2.5 border-t border-current/10 p-16">
+		<footer className="flex flex-col items-center gap-4 border-t border-current/10 px-6 py-10 text-center sm:flex-row sm:flex-wrap sm:justify-between sm:gap-y-2.5 sm:p-16 sm:text-left">
 			<a
 				href="/"
-				className="w-[148px] whitespace-nowrap text-center text-xl font-semibold leading-[1.45] tracking-[-0.1px]"
+				className="whitespace-nowrap text-center text-xl font-semibold leading-[1.45] tracking-[-0.1px] sm:w-[148px]"
 			>
 				Jim Van Duijsen
 			</a>
 
-			<nav className="flex max-w-full flex-wrap items-center justify-center gap-x-8 gap-y-2.5 max-sm:flex-col max-sm:gap-x-0">
+			<nav className="flex flex-col items-center gap-2.5 sm:max-w-full sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-8 sm:gap-y-2.5">
 				{footerLinks.map((link) => (
 					<a
 						key={link.label}
