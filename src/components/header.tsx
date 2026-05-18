@@ -9,12 +9,16 @@ export const Header = () => {
 				<div className="flex items-center gap-3">
 					<label
 						htmlFor="menu-toggle"
-						className="flex cursor-pointer flex-col gap-1.5 p-1 sm:hidden"
+						className="flex cursor-pointer items-center p-1 sm:hidden"
 						aria-label="Toggle navigation menu"
 					>
-						<span className="block h-0.5 w-5 bg-current" />
-						<span className="block h-0.5 w-5 bg-current" />
-						<span className="block h-0.5 w-5 bg-current" />
+						<img
+							src="/assets/icons/menu.svg"
+							width="20"
+							height="14"
+							alt=""
+							aria-hidden="true"
+						/>
 					</label>
 
 					<a
