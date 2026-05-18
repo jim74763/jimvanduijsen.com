@@ -15,7 +15,7 @@ export const Header = () => {
 						<img
 							src="/assets/icons/menu.svg"
 							width="20"
-							height="14"
+							height="20"
 							alt=""
 							aria-hidden="true"
 						/>
