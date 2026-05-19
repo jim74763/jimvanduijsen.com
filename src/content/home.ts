@@ -20,12 +20,12 @@ export const socials: SocialItem[] = [
 		text: "jim_p5456",
 		icon: "/assets/icons/instagram.svg",
 	},
-	{
-		label: "X(Twitter)",
-		href: "https://umami.app.jimvd.xyz/q/cIABHJT90",
-		text: "@p35555481",
-		icon: "/assets/icons/x.svg",
-	},
+	// {
+	// 	label: "X(Twitter)",
+	// 	href: "https://umami.app.jimvd.xyz/q/cIABHJT90",
+	// 	text: "@p35555481",
+	// 	icon: "/assets/icons/x.svg",
+	// },
 	{
 		label: "Linkedin",
 		href: "https://umami.app.jimvd.xyz/q/fbyIKSsDH",
