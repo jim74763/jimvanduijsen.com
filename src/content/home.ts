@@ -32,6 +32,12 @@ export const socials: SocialItem[] = [
 		text: "jim-van-duijsen",
 		icon: "/assets/icons/linkedin.svg",
 	},
+	{
+		label: "GitHub",
+		href: "https://umami.app.jimvd.xyz/q/1xyTJU5U7",
+		text: "jim74763",
+		icon: "/assets/icons/github.svg",
+	},
 ];
 
 export const links: HomeLinkItem[] = [
