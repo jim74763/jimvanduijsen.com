@@ -73,7 +73,7 @@ export default function JimLandingPage() {
 
 export const homePage = () => {
 	return renderPage({
-		title: "Jim van Duijsen — AI Agent Developer & Freelance Web Developer",
+		title: "Jim van Duijsen | AI Agent Developer & Freelance Web Developer",
 		description:
 			"Jim van Duijsen builds custom AI agents and modern websites for businesses. Founder of TJB AI and Jimvd Web Agency. Available for freelance projects.",
 		canonicalPath: "/",

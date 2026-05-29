@@ -86,7 +86,7 @@ export default function PortfolioPage() {
 
 export const aboutPage = () => {
 	return renderPage({
-		title: "About Jim van Duijsen — AI Agent Developer & Web Developer",
+		title: "About Jim van Duijsen | AI Agent Developer & Web Developer",
 		description:
 			"Jim van Duijsen builds custom AI agents and automation workflows. Founder of TJB AI and Jimvd Web Agency. Freelance developer for clients like Crypto Insiders.",
 		canonicalPath: "/about",
