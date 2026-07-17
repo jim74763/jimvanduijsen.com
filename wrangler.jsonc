@@ -15,7 +15,6 @@
       "custom_domain": true,
     },
   ],
-  {
   "observability": {
     "logs": {
       "enabled": true,
@@ -25,7 +24,6 @@
       "enabled": true
     }
   }
-}
   // "compatibility_flags": [
   //   "nodejs_compat"
   // ],
