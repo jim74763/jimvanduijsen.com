@@ -1,11 +1,14 @@
 import { Footer } from "../components/footer.js";
 import { Header } from "../components/header.js";
+import { JsonLd } from "../components/json-ld.js";
 import { projects } from "../content/about.js";
 import { renderPage } from "../utils/document.js";
+import { aboutSchema } from "../utils/schema.org/about.js";
 
 export default function PortfolioPage() {
 	return (
 		<main className="relative flex min-h-screen flex-col overflow-x-hidden bg-white text-black">
+			<JsonLd schema={aboutSchema(projects)} />
 			<Header />
 			<section className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-6 pb-28 pt-[104px] sm:px-12 sm:pb-32">
 				<header className="mb-8 max-w-xl">

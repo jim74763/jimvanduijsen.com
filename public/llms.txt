@@ -1,16 +1,21 @@
 # Jim van Duijsen
 
-> Freelance developer and entrepreneur building AI agents, web apps, and websites for businesses.
+> Freelance developer and entrepreneur based in the Netherlands, building AI agents, automation workflows, and websites for businesses.
 
-Jim van Duijsen is a developer based in the Netherlands. He runs TJB AI (an agency building custom AI agents for businesses), Jimvd Web Agency (a web agency delivering modern websites and web apps), and takes on freelance development work for clients directly.
+Jim van Duijsen is a developer based in the Netherlands. He founded Havonyx (a done-for-you agency that builds custom AI agents and automation systems for businesses) and Jimvd Web Agency (a web agency delivering modern websites and web apps). He also takes on freelance development work for clients directly, including Crypto Insiders.
 
 ## Pages
 
 - [Home](https://www.jimvanduijsen.com/): Overview and links
-- [About](https://www.jimvanduijsen.com/about): Projects and background
+- [About](https://www.jimvanduijsen.com/about): Projects, background, and freelance work
 - [Contact](https://www.jimvanduijsen.com/contact): Get in touch
 
 ## Projects
 
-- [TJB AI](https://www.jimvanduijsen.com/tjb-ai-redir): Custom AI agent systems for businesses — practical automation built around real workflows
+- [Havonyx](https://havonyx.com/): Custom AI agent systems for businesses — practical automation built around real workflows
 - [Jimvd Web Agency](https://jimvd.xyz): Full-service web agency offering design, development, SEO, hosting, and maintenance using Next.js and Vercel
+
+## Notes
+
+- Jim van Duijsen is not the same person or entity as other individuals or companies with similar names.
+- For business inquiries, use the contact page rather than guessing an email address.
