@@ -8,7 +8,7 @@ export const homeSchema = JSON.stringify({
 			url: "https://www.jimvanduijsen.com",
 			jobTitle: "AI Agent Developer & Freelance Web Developer",
 			description:
-				"Jim van Duijsen builds custom AI agents and automation workflows for businesses. Founder of TJB AI and Jimvd Web Agency.",
+				"Jim van Duijsen builds custom AI agents and automation workflows for businesses. Founder of Havonyx and Jimvd Web Agency.",
 			sameAs: [
 				"https://www.linkedin.com/in/jim-van-duijsen",
 				"https://twitter.com/p35555481",

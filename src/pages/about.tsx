@@ -23,10 +23,9 @@ export default function PortfolioPage() {
 
 					<p className="text-base font-medium leading-relaxed text-black/65">
 						I build AI agents and automation workflows. I am currently building
-						TJB AI, a done-for-you AI agency that turns repetitive business
-						tasks into useful AI coworker systems. <br />I also work as a
-						freelance developer with notable clients such as Crypto-Insiders,
-						and I also have a web agency called jimvd.
+						Havonyx, a done-for-you AI agency that turns repetitive business
+						tasks into practical AI automation systems. <br />I also work as a
+						freelance developer with notable clients such as Crypto-Insiders.
 					</p>
 				</header>
 
@@ -88,7 +87,7 @@ export const aboutPage = () => {
 	return renderPage({
 		title: "About Jim van Duijsen | AI Agent Developer & Web Developer",
 		description:
-			"Jim van Duijsen builds custom AI agents and automation workflows. Founder of TJB AI and Jimvd Web Agency. Freelance developer for clients like Crypto Insiders.",
+			"Jim van Duijsen builds custom AI agents and automation workflows. Founder of Havonyx and Jimvd Web Agency. Freelance developer for clients like Crypto Insiders.",
 		canonicalPath: "/about",
 		children: <PortfolioPage />,
 	});

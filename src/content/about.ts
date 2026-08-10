@@ -8,12 +8,12 @@ export type ProjectItem = {
 
 export const projects: ProjectItem[] = [
 	{
-		title: "TJB Ai",
+		title: "Havonyx",
 		year: "2026",
-		link: "/tjb-ai-redir",
-		linkLabel: "Visit TJB AI",
+		link: "https://havonyx.com/?utm_source=jimvanduijsen.com&utm_medium=website&utm_campaign=portfolio&utm_content=about_page",
+		linkLabel: "Visit Havonyx",
 		contentHtml:
-			"<p>TJB AI is an agency that creates and maintains custom AI agents for businesses. We build practical agent systems around real workflows, connecting the tools, data, and automation needed to reduce repetitive work and help teams operate more efficiently.</p>",
+			"<p>Havonyx is an agency that creates and maintains custom AI agents for businesses. We build practical agent systems around real workflows, connecting the tools, data, and automation needed to reduce repetitive work and help teams operate more efficiently.</p>",
 	},
 	{
 		title: "Freelance Work",

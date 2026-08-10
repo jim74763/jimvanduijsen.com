@@ -42,8 +42,8 @@ export const socials: SocialItem[] = [
 
 export const links: HomeLinkItem[] = [
 	{
-		label: "Done for you AI coworker",
-		href: "https://umami.app.jimvd.xyz/q/6toPyYOJO",
+		label: "AI agents & automation",
+		href: "https://havonyx.com/?utm_source=jimvanduijsen.com&utm_medium=website&utm_campaign=portfolio&utm_content=home_button",
 		isExternal: true,
 	},
 	{

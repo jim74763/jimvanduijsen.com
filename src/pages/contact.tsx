@@ -13,8 +13,7 @@ const Contact = () => {
 					</h1>
 					<p className="text-base font-medium leading-relaxed text-black/65">
 						Interested in working together? Fill out the form and I'll get back
-						to you. I'm available for custom AI agent builds, automation
-						workflows, and freelance web development projects.
+						to you.
 					</p>
 				</header>
 				<div className="h-[650px] w-full overflow-hidden lg:flex-1">
