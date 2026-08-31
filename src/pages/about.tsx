@@ -30,15 +30,6 @@ export default function PortfolioPage() {
 						tasks into practical AI automation systems. <br />I also work as a
 						freelance developer with notable clients such as Crypto-Insiders.
 					</p>
-
-					<a
-						href="/assets/cv/jim-van-duijsen-cv.pdf"
-						target="_blank"
-						rel="noreferrer"
-						className="mt-5 inline-flex w-fit items-center rounded-full bg-black px-5 py-2.5 text-base font-semibold tracking-tight text-white transition hover:opacity-80"
-					>
-						Download CV
-					</a>
 				</header>
 
 				<h2 className="mb-4 text-3xl font-semibold tracking-tight">

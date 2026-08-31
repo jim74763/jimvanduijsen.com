@@ -61,9 +61,4 @@ export const links: HomeLinkItem[] = [
 		href: "https://umami.app.jimvd.xyz/q/0lfWDwcxL",
 		isExternal: true,
 	},
-	{
-		label: "Download CV",
-		href: "/assets/cv/jim-van-duijsen-cv.pdf",
-		isExternal: true,
-	},
 ];
