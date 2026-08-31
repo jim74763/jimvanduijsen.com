@@ -6,19 +6,6 @@ export type ProjectItem = {
 	contentHtml: string;
 };
 
-export type ExperienceItem = {
-	role: string;
-	company: string;
-	period: string;
-	location: string;
-	bullets: string[];
-};
-
-export type SkillGroup = {
-	category: string;
-	items: string;
-};
-
 export type LanguageItem = {
 	name: string;
 	level: string;
@@ -49,39 +36,17 @@ export const projects: ProjectItem[] = [
 		contentHtml:
 			'<p>Jimvd.xyz is my web agency for businesses that need a modern website or web app. It covers the full delivery flow from discovery and design through development, launch, hosting, and maintenance, with a focus on SEO, fast Next.js builds, Vercel hosting, and responsive sites that help companies reach more customers online.</p><p>To quickly see examples of what I have created, visit the <a href="https://umami.app.jimvd.xyz/q/tD51Ah5HL">testimonials page</a>.</p>',
 	},
-];
-
-export const experience: ExperienceItem[] = [
 	{
-		role: "Frontend Developer",
-		company: "Crypto Insiders",
-		period: "Present",
-		location: "Part-time · Remote / Netherlands",
-		bullets: [
-			"Working on the transfer of the company's website from WordPress to Next.js, rebuilding pages to closely match the original designs",
-			"Contributed to a multilingual (NL/DE) rollout and fixed bugs and technical issues along the way",
-		],
+		title: "Frontend Developer — Crypto Insiders",
+		year: "Present",
+		contentHtml:
+			'<p class="text-sm text-black/50">Part-time · Remote / Netherlands</p><ul class="list-disc space-y-1.5 pl-5"><li>Working on the transfer of the company\'s website from WordPress to Next.js, rebuilding pages to closely match the original designs</li><li>Contributed to a multilingual (NL/DE) rollout and fixed bugs and technical issues along the way</li></ul>',
 	},
 	{
-		role: "Founder & Freelance Developer",
-		company: "Havonyx / Self-employed",
-		period: "Present",
-		location: "Netherlands · Web development",
-		bullets: [
-			"Run a small web development business alongside independent freelance work, building websites and web tools for clients with React, Next.js and TypeScript",
-			"Handle the full range of running a small business, from engineering to outreach and marketing, though the engineering side is what I enjoy most and still spend most of my time on",
-		],
-	},
-];
-
-export const technicalSkills: SkillGroup[] = [
-	{
-		category: "Frontend",
-		items: "React, Next.js, TypeScript, JavaScript, HTML/CSS",
-	},
-	{
-		category: "Workflow",
-		items: "Git, Figma-to-code, REST APIs",
+		title: "Founder & Freelance Developer — Havonyx",
+		year: "Present",
+		contentHtml:
+			'<p class="text-sm text-black/50">Netherlands · Web development</p><ul class="list-disc space-y-1.5 pl-5"><li>Run a small web development business alongside independent freelance work, building websites and web tools for clients with React, Next.js and TypeScript</li><li>Handle the full range of running a small business, from engineering to outreach and marketing, though the engineering side is what I enjoy most and still spend most of my time on</li></ul>',
 	},
 ];
 

@@ -1,12 +1,7 @@
 import { Footer } from "../components/footer.js";
 import { Header } from "../components/header.js";
 import { JsonLd } from "../components/json-ld.js";
-import {
-	experience,
-	languages,
-	projects,
-	technicalSkills,
-} from "../content/about.js";
+import { languages, projects } from "../content/about.js";
 import { renderPage } from "../utils/document.js";
 import { aboutSchema } from "../utils/schema.org/about.js";
 
@@ -36,76 +31,6 @@ export default function PortfolioPage() {
 						freelance developer with notable clients such as Crypto-Insiders.
 					</p>
 				</header>
-
-				<h2 className="mb-4 text-3xl font-semibold tracking-tight">
-					Experience
-				</h2>
-
-				<ul className="mb-12 w-full">
-					{experience.map((job) => (
-						<li
-							key={`${job.role}-${job.company}`}
-							className="border-b border-black/15 py-5 first:pt-0"
-						>
-							<div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-								<span className="text-xl font-semibold tracking-tight">
-									{job.role} — {job.company}
-								</span>
-								<span className="text-base font-medium tracking-tight text-black/60">
-									{job.period}
-								</span>
-							</div>
-							<p className="mt-1 text-sm font-medium text-black/50">
-								{job.location}
-							</p>
-							<ul className="mt-3 list-disc space-y-1.5 pl-5 text-base font-medium leading-relaxed text-black/65">
-								{job.bullets.map((bullet) => (
-									<li key={bullet}>{bullet}</li>
-								))}
-							</ul>
-						</li>
-					))}
-				</ul>
-
-				<div className="mb-12 grid w-full gap-8 sm:grid-cols-2">
-					<div>
-						<h2 className="mb-4 text-3xl font-semibold tracking-tight">
-							Technical skills
-						</h2>
-						<ul className="space-y-2">
-							{technicalSkills.map((skill) => (
-								<li
-									key={skill.category}
-									className="text-base font-medium leading-relaxed text-black/65"
-								>
-									<span className="font-semibold text-black">
-										{skill.category}:
-									</span>{" "}
-									{skill.items}
-								</li>
-							))}
-						</ul>
-					</div>
-
-					<div>
-						<h2 className="mb-4 text-3xl font-semibold tracking-tight">
-							Languages
-						</h2>
-						<ul className="space-y-2">
-							{languages.map((language) => (
-								<li
-									key={language.name}
-									className="text-base font-medium leading-relaxed text-black/65"
-								>
-									<span className="font-semibold text-black">
-										{language.name}:
-									</span>{" "}
-									{language.level}
-								</li>
-							))}
-						</ul>
-					</div>
-				</div>
 
 				<h2 className="mb-4 text-3xl font-semibold tracking-tight">
 					Projects i have worked on
@@ -152,6 +77,22 @@ export default function PortfolioPage() {
 									) : null}
 								</div>
 							</details>
+						</li>
+					))}
+				</ul>
+
+				<h2 className="mb-4 mt-12 text-3xl font-semibold tracking-tight">
+					Languages
+				</h2>
+
+				<ul className="space-y-2">
+					{languages.map((language) => (
+						<li
+							key={language.name}
+							className="text-base font-medium leading-relaxed text-black/65"
+						>
+							<span className="font-semibold text-black">{language.name}:</span>{" "}
+							{language.level}
 						</li>
 					))}
 				</ul>
