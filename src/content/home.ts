@@ -57,8 +57,8 @@ export const links: HomeLinkItem[] = [
 		isExternal: false,
 	},
 	{
-		label: "Website templates",
-		href: "https://umami.app.jimvd.xyz/q/0lfWDwcxL",
-		isExternal: true,
+		label: "Software I recommend",
+		href: "/software",
+		isExternal: false,
 	},
 ];
