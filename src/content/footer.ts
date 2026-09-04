@@ -10,7 +10,7 @@ export type FooterMetaItem = {
 export const footerLinks: FooterLink[] = [
 	{
 		label: "Privacy and legal",
-		href: "https://umami.app.jimvd.xyz/q/4ptT22vvv",
+		href: "https://legal.app.jimvd.xyz",
 	},
 	{
 		label: "hello@jimvanduijsen.nl",
