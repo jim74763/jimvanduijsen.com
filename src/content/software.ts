@@ -63,6 +63,26 @@ export const softwareCategories: SoftwareCategory[] = [
 				domain: "claude.ai",
 				description: "AI assistant for coding, writing, and running agents.",
 			},
+			{
+				name: "OpenAI",
+				href: "https://openai.com",
+				domain: "openai.com",
+				description: "Maker of GPT and the OpenAI API.",
+			},
+			{
+				name: "OpenRouter",
+				href: "https://openrouter.ai",
+				domain: "openrouter.ai",
+				description:
+					"Unified API for routing requests across many LLM providers.",
+			},
+			{
+				name: "opencode-openai-codex-auth",
+				href: "https://github.com/numman-ali/opencode-openai-codex-auth",
+				domain: "github.com",
+				description:
+					"OAuth plugin that turns a ChatGPT Plus/Pro Codex subscription into an OpenAI-compatible API.",
+			},
 		],
 	},
 	{
