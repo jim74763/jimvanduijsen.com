@@ -16,7 +16,8 @@ const Software = () => {
 						Software I recommend
 					</h1>
 					<p className="text-base font-medium leading-relaxed text-black/65">
-						Tools and services I actually use, grouped by category.
+						Tools and services I actually use, grouped by category. None of
+						these are affiliate links.
 					</p>
 				</header>
 

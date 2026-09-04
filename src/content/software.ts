@@ -64,12 +64,6 @@ export const softwareCategories: SoftwareCategory[] = [
 				description: "AI assistant for coding, writing, and running agents.",
 			},
 			{
-				name: "OpenAI",
-				href: "https://openai.com",
-				domain: "openai.com",
-				description: "Maker of GPT and the OpenAI API.",
-			},
-			{
 				name: "OpenRouter",
 				href: "https://openrouter.ai",
 				domain: "openrouter.ai",
@@ -77,11 +71,35 @@ export const softwareCategories: SoftwareCategory[] = [
 					"Unified API for routing requests across many LLM providers.",
 			},
 			{
-				name: "opencode-openai-codex-auth",
-				href: "https://github.com/numman-ali/opencode-openai-codex-auth",
+				name: "openai-oauth",
+				href: "https://github.com/EvanZhouDev/openai-oauth",
 				domain: "github.com",
 				description:
-					"OAuth plugin that turns a ChatGPT Plus/Pro Codex subscription into an OpenAI-compatible API.",
+					"Unofficial tool that turns your ChatGPT OAuth login into a free, OpenAI-compatible API.",
+			},
+			{
+				name: "Next.js AI Agents",
+				href: "https://nextjs.org/docs/app/guides/ai-agents",
+				domain: "nextjs.org",
+				description: "Official Next.js guide for building AI agents.",
+			},
+		],
+	},
+	{
+		name: "Automation",
+		items: [
+			{
+				name: "n8n",
+				href: "https://n8n.io",
+				domain: "n8n.io",
+				description: "Open-source workflow automation platform.",
+			},
+			{
+				name: "Apify",
+				href: "https://apify.com",
+				domain: "apify.com",
+				description:
+					"Web scraping and automation platform with a marketplace of ready-made actors.",
 			},
 		],
 	},
@@ -93,6 +111,13 @@ export const softwareCategories: SoftwareCategory[] = [
 				href: "https://instantly.ai",
 				domain: "instantly.ai",
 				description: "Cold email sending and lead automation.",
+			},
+			{
+				name: "Instantly MCP",
+				href: "https://help.instantly.ai/en/articles/12980002-instantly-mcp-model-context-protocol",
+				domain: "instantly.ai",
+				description:
+					"MCP server giving AI tools access to your Instantly campaigns, leads, and analytics.",
 			},
 		],
 	},
