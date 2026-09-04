@@ -38,7 +38,7 @@ const Software = () => {
 											className="flex items-center gap-4 py-4 transition hover:opacity-60"
 										>
 											<img
-												src={`https://www.google.com/s2/favicons?sz=64&domain=${item.domain}`}
+												src={`https://${item.domain}/favicon.ico`}
 												alt=""
 												loading="lazy"
 												width="32"

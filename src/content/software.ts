@@ -52,10 +52,16 @@ export const softwareCategories: SoftwareCategory[] = [
 				domain: "cloudflare.com",
 				description: "CDN, DNS, and edge Workers. Runs this website.",
 			},
+			{
+				name: "Spaceship",
+				href: "https://www.spaceship.com",
+				domain: "spaceship.com",
+				description: "Domain registration, DNS, and hosting.",
+			},
 		],
 	},
 	{
-		name: "AI",
+		name: "AI tools",
 		items: [
 			{
 				name: "Claude",
@@ -78,10 +84,31 @@ export const softwareCategories: SoftwareCategory[] = [
 					"Unofficial tool that turns your ChatGPT OAuth login into a free, OpenAI-compatible API.",
 			},
 			{
-				name: "Next.js AI Agents",
-				href: "https://nextjs.org/docs/app/guides/ai-agents",
+				name: "Next.js MCP",
+				href: "https://nextjs.org/docs/app/guides/mcp",
 				domain: "nextjs.org",
-				description: "Official Next.js guide for building AI agents.",
+				description:
+					"Built-in MCP server that lets your AI coding agent inspect your app's live routes and structure to understand your Next.js codebase.",
+			},
+			{
+				name: "Instantly MCP",
+				href: "https://help.instantly.ai/en/articles/12980002-instantly-mcp-model-context-protocol",
+				domain: "instantly.ai",
+				description:
+					"MCP server giving AI tools access to your Instantly campaigns, leads, and analytics.",
+			},
+			{
+				name: "remindctl",
+				href: "https://github.com/steipete/remindctl",
+				domain: "github.com",
+				description: "Command-line tool for managing Apple Reminders.",
+			},
+			{
+				name: "memo",
+				href: "https://github.com/antoniorodr/memo",
+				domain: "github.com",
+				description:
+					"Command-line tool for managing Apple Notes and Reminders.",
 			},
 		],
 	},
@@ -112,13 +139,6 @@ export const softwareCategories: SoftwareCategory[] = [
 				domain: "instantly.ai",
 				description: "Cold email sending and lead automation.",
 			},
-			{
-				name: "Instantly MCP",
-				href: "https://help.instantly.ai/en/articles/12980002-instantly-mcp-model-context-protocol",
-				domain: "instantly.ai",
-				description:
-					"MCP server giving AI tools access to your Instantly campaigns, leads, and analytics.",
-			},
 		],
 	},
 	{
@@ -130,23 +150,11 @@ export const softwareCategories: SoftwareCategory[] = [
 				domain: "mxtoolbox.com",
 				description: "DNS, MX record, and email deliverability diagnostics.",
 			},
-		],
-	},
-	{
-		name: "CLI tools",
-		items: [
 			{
-				name: "remindctl",
-				href: "https://github.com/steipete/remindctl",
-				domain: "github.com",
-				description: "Command-line tool for managing Apple Reminders.",
-			},
-			{
-				name: "memo",
-				href: "https://github.com/antoniorodr/memo",
-				domain: "github.com",
-				description:
-					"Command-line tool for managing Apple Notes and Reminders.",
+				name: "FreeFlow",
+				href: "https://freeflow.zachlatta.com/",
+				domain: "freeflow.zachlatta.com",
+				description: "Free, open-source Mac dictation app.",
 			},
 		],
 	},
