@@ -160,4 +160,16 @@ export const softwareCategories: SoftwareCategory[] = [
 			},
 		],
 	},
+	{
+		name: "Analytics",
+		items: [
+			{
+				name: "Umami",
+				href: "https://umami.is",
+				icon: `${ICON_BASE}/umami.svg`,
+				description:
+					"Open-source, privacy-friendly web analytics. Runs the analytics on this site.",
+			},
+		],
+	},
 ];
