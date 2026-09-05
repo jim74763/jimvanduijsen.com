@@ -19,7 +19,7 @@ export const softwareCategories: SoftwareCategory[] = [
 			{
 				name: "getdesign.md",
 				href: "https://getdesign.md/",
-				icon: `${ICON_BASE}/getdesign-md.svg`,
+				icon: `${ICON_BASE}/getdesign-md.png`,
 				description:
 					"Curated DESIGN.md files from real brands so AI coding agents generate consistent UI.",
 			},
@@ -74,7 +74,7 @@ export const softwareCategories: SoftwareCategory[] = [
 			{
 				name: "OpenRouter",
 				href: "https://openrouter.ai",
-				icon: `${ICON_BASE}/openrouter.svg`,
+				icon: `${ICON_BASE}/openrouter.png`,
 				description:
 					"Unified API for routing requests across many LLM providers.",
 			},
@@ -126,7 +126,7 @@ export const softwareCategories: SoftwareCategory[] = [
 			{
 				name: "Apify",
 				href: "https://apify.com",
-				icon: `${ICON_BASE}/apify.svg`,
+				icon: `${ICON_BASE}/apify.png`,
 				description:
 					"Web scraping and automation platform with a marketplace of ready-made actors.",
 			},
@@ -149,13 +149,13 @@ export const softwareCategories: SoftwareCategory[] = [
 			{
 				name: "MxToolbox",
 				href: "https://mxtoolbox.com",
-				icon: `${ICON_BASE}/mxtoolbox.svg`,
+				icon: `${ICON_BASE}/mxtoolbox.png`,
 				description: "DNS, MX record, and email deliverability diagnostics.",
 			},
 			{
 				name: "FreeFlow",
 				href: "https://freeflow.zachlatta.com/",
-				icon: `${ICON_BASE}/freeflow.svg`,
+				icon: `${ICON_BASE}/freeflow.png`,
 				description: "Free, open-source Mac dictation app.",
 			},
 		],
