@@ -2,6 +2,7 @@ import { Hono } from "hono";
 import { aboutPage } from "./pages/about.js";
 import { contactPage } from "./pages/contact.js";
 import { homePage } from "./pages/home.js";
+import { softwarePage } from "./pages/software.js";
 import { sitemap } from "./utils/sitemap.js";
 import { proxyUmami } from "./utils/umami-proxy.js";
 
@@ -16,6 +17,8 @@ app.get("/", (c) => c.html(homePage()));
 app.get("/contact", (c) => c.html(contactPage()));
 
 app.get("/about", (c) => c.html(aboutPage()));
+
+app.get("/software", (c) => c.html(softwarePage()));
 
 app.get("/tjb-ai-redir", (c) =>
 	c.redirect(

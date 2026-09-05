@@ -16,4 +16,8 @@ export const navLinks: HeaderNavLink[] = [
 		label: "About",
 		href: "/about",
 	},
+	{
+		label: "Software",
+		href: "/software",
+	},
 ];
