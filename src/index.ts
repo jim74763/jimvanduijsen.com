@@ -18,7 +18,9 @@ app.get("/contact", (c) => c.html(contactPage()));
 app.get("/about", (c) => c.html(aboutPage()));
 
 app.get("/tjb-ai-redir", (c) =>
-	c.redirect("https://umami.app.jimvd.xyz/q/4cGtGB35i"),
+	c.redirect(
+		"https://tjb.lead-blitz.com?utm_source=instantly-sending-domain&utm_medium=redirect&utm_campaign=instantly",
+	),
 );
 
 app.get("/u/script.js", (c) => proxyUmami(c.req.raw, "/script.js"));
