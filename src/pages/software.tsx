@@ -38,12 +38,12 @@ const Software = () => {
 											className="flex items-center gap-4 py-4 transition hover:opacity-60"
 										>
 											<img
-												src={`https://${item.domain}/favicon.ico`}
+												src={item.icon}
 												alt=""
 												loading="lazy"
 												width="32"
 												height="32"
-												className="h-8 w-8 flex-shrink-0 rounded-md border border-black/10"
+												className="h-8 w-8 flex-shrink-0 rounded-md border border-black/10 object-contain"
 											/>
 											<span className="min-w-0 flex-1">
 												<span className="block text-base font-semibold tracking-tight text-black">

@@ -1,7 +1,7 @@
 export type SoftwareItem = {
 	name: string;
 	href: string;
-	domain: string;
+	icon: string;
 	description: string;
 };
 
@@ -10,6 +10,8 @@ export type SoftwareCategory = {
 	items: SoftwareItem[];
 };
 
+const ICON_BASE = "/assets/icons/software";
+
 export const softwareCategories: SoftwareCategory[] = [
 	{
 		name: "UX/UI",
@@ -17,7 +19,7 @@ export const softwareCategories: SoftwareCategory[] = [
 			{
 				name: "getdesign.md",
 				href: "https://getdesign.md/",
-				domain: "getdesign.md",
+				icon: `${ICON_BASE}/getdesign-md.svg`,
 				description:
 					"Curated DESIGN.md files from real brands so AI coding agents generate consistent UI.",
 			},
@@ -29,33 +31,33 @@ export const softwareCategories: SoftwareCategory[] = [
 			{
 				name: "Vercel",
 				href: "https://vercel.com",
-				domain: "vercel.com",
+				icon: `${ICON_BASE}/vercel.svg`,
 				description:
 					"Hosting and CI/CD for Next.js and other frontend frameworks.",
 			},
 			{
 				name: "Hetzner",
 				href: "https://www.hetzner.com",
-				domain: "hetzner.com",
+				icon: `${ICON_BASE}/hetzner.svg`,
 				description: "Affordable, reliable VPS and dedicated servers.",
 			},
 			{
 				name: "Coolify",
 				href: "https://coolify.io",
-				domain: "coolify.io",
+				icon: `${ICON_BASE}/coolify.svg`,
 				description:
 					"Open-source, self-hosted PaaS for deploying apps on your own servers.",
 			},
 			{
 				name: "Cloudflare",
 				href: "https://www.cloudflare.com",
-				domain: "cloudflare.com",
+				icon: `${ICON_BASE}/cloudflare.svg`,
 				description: "CDN, DNS, and edge Workers. Runs this website.",
 			},
 			{
 				name: "Spaceship",
 				href: "https://www.spaceship.com",
-				domain: "spaceship.com",
+				icon: `${ICON_BASE}/spaceship.svg`,
 				description: "Domain registration, DNS, and hosting.",
 			},
 		],
@@ -66,47 +68,47 @@ export const softwareCategories: SoftwareCategory[] = [
 			{
 				name: "Claude",
 				href: "https://claude.ai",
-				domain: "claude.ai",
+				icon: `${ICON_BASE}/claude.svg`,
 				description: "AI assistant for coding, writing, and running agents.",
 			},
 			{
 				name: "OpenRouter",
 				href: "https://openrouter.ai",
-				domain: "openrouter.ai",
+				icon: `${ICON_BASE}/openrouter.svg`,
 				description:
 					"Unified API for routing requests across many LLM providers.",
 			},
 			{
 				name: "openai-oauth",
 				href: "https://github.com/EvanZhouDev/openai-oauth",
-				domain: "github.com",
+				icon: `${ICON_BASE}/github.svg`,
 				description:
 					"Unofficial tool that turns your ChatGPT OAuth login into a free, OpenAI-compatible API.",
 			},
 			{
 				name: "Next.js MCP",
 				href: "https://nextjs.org/docs/app/guides/mcp",
-				domain: "nextjs.org",
+				icon: `${ICON_BASE}/nextjs.svg`,
 				description:
 					"Built-in MCP server that lets your AI coding agent inspect your app's live routes and structure to understand your Next.js codebase.",
 			},
 			{
 				name: "Instantly MCP",
 				href: "https://help.instantly.ai/en/articles/12980002-instantly-mcp-model-context-protocol",
-				domain: "instantly.ai",
+				icon: `${ICON_BASE}/instantly.png`,
 				description:
 					"MCP server giving AI tools access to your Instantly campaigns, leads, and analytics.",
 			},
 			{
 				name: "remindctl",
 				href: "https://github.com/steipete/remindctl",
-				domain: "github.com",
+				icon: `${ICON_BASE}/github.svg`,
 				description: "Command-line tool for managing Apple Reminders.",
 			},
 			{
 				name: "memo",
 				href: "https://github.com/antoniorodr/memo",
-				domain: "github.com",
+				icon: `${ICON_BASE}/github.svg`,
 				description:
 					"Command-line tool for managing Apple Notes and Reminders.",
 			},
@@ -118,13 +120,13 @@ export const softwareCategories: SoftwareCategory[] = [
 			{
 				name: "n8n",
 				href: "https://n8n.io",
-				domain: "n8n.io",
+				icon: `${ICON_BASE}/n8n.svg`,
 				description: "Open-source workflow automation platform.",
 			},
 			{
 				name: "Apify",
 				href: "https://apify.com",
-				domain: "apify.com",
+				icon: `${ICON_BASE}/apify.svg`,
 				description:
 					"Web scraping and automation platform with a marketplace of ready-made actors.",
 			},
@@ -136,7 +138,7 @@ export const softwareCategories: SoftwareCategory[] = [
 			{
 				name: "Instantly",
 				href: "https://instantly.ai",
-				domain: "instantly.ai",
+				icon: `${ICON_BASE}/instantly.png`,
 				description: "Cold email sending and lead automation.",
 			},
 		],
@@ -147,13 +149,13 @@ export const softwareCategories: SoftwareCategory[] = [
 			{
 				name: "MxToolbox",
 				href: "https://mxtoolbox.com",
-				domain: "mxtoolbox.com",
+				icon: `${ICON_BASE}/mxtoolbox.svg`,
 				description: "DNS, MX record, and email deliverability diagnostics.",
 			},
 			{
 				name: "FreeFlow",
 				href: "https://freeflow.zachlatta.com/",
-				domain: "freeflow.zachlatta.com",
+				icon: `${ICON_BASE}/freeflow.svg`,
 				description: "Free, open-source Mac dictation app.",
 			},
 		],
