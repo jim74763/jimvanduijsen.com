@@ -16,25 +16,25 @@ export const profileImage = "/assets/images/jim-van-duijsen-profile.png";
 export const socials: SocialItem[] = [
 	{
 		label: "Instagram",
-		href: "https://umami.app.jimvd.xyz/q/CBBLbE6Vt",
+		href: "https://www.instagram.com/jim_p5456/",
 		text: "jim_p5456",
 		icon: "/assets/icons/instagram.svg",
 	},
 	// {
 	// 	label: "X(Twitter)",
-	// 	href: "https://umami.app.jimvd.xyz/q/cIABHJT90",
+	// 	href: "https://x.com/p35555481",
 	// 	text: "@p35555481",
 	// 	icon: "/assets/icons/x.svg",
 	// },
 	{
 		label: "Linkedin",
-		href: "https://umami.app.jimvd.xyz/q/fbyIKSsDH",
+		href: "https://www.linkedin.com/in/jim-van-duijsen/",
 		text: "jim-van-duijsen",
 		icon: "/assets/icons/linkedin.svg",
 	},
 	{
 		label: "GitHub",
-		href: "https://umami.app.jimvd.xyz/q/1xyTJU5U7",
+		href: "https://github.com/jim74763",
 		text: "jim74763",
 		icon: "/assets/icons/github.svg",
 	},

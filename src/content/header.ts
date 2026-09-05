@@ -6,7 +6,7 @@ export type HeaderNavLink = {
 export const navLinks: HeaderNavLink[] = [
 	{
 		label: "Templates",
-		href: "https://umami.app.jimvd.xyz/q/0lfWDwcxL",
+		href: "https://template.jimvd.xyz",
 	},
 	{
 		label: "Contact",
@@ -15,5 +15,9 @@ export const navLinks: HeaderNavLink[] = [
 	{
 		label: "About",
 		href: "/about",
+	},
+	{
+		label: "Software",
+		href: "/software",
 	},
 ];

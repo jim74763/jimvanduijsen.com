@@ -21,7 +21,7 @@ export const projects: ProjectItem[] = [
 		link: "/contact",
 		linkLabel: "Contact me",
 		contentHtml:
-			'<h3>Freelance Work</h3><p>I also work with clients as a freelancer.</p><p>Besides my own projects, I take on freelance work for people and businesses that need a more personal way to get a project built. I like working directly with clients.</p><p>I am currently working with notable clients such as <a href="https://umami.app.jimvd.xyz/q/0FNEDQNFj">Crypto Insiders</a>.</p>',
+			'<h3>Freelance Work</h3><p>I also work with clients as a freelancer.</p><p>Besides my own projects, I take on freelance work for people and businesses that need a more personal way to get a project built. I like working directly with clients.</p><p>I am currently working with notable clients such as <a href="https://crypto-insiders.nl">Crypto Insiders</a>.</p>',
 	},
 	{
 		title: "Jimvd Web Agency",
@@ -29,6 +29,6 @@ export const projects: ProjectItem[] = [
 		link: "https://jimvd.xyz",
 		linkLabel: "Visit Jimvd.xyz",
 		contentHtml:
-			'<p>Jimvd.xyz is my web agency for businesses that need a modern website or web app. It covers the full delivery flow from discovery and design through development, launch, hosting, and maintenance, with a focus on SEO, fast Next.js builds, Vercel hosting, and responsive sites that help companies reach more customers online.</p><p>To quickly see examples of what I have created, visit the <a href="https://umami.app.jimvd.xyz/q/tD51Ah5HL">testimonials page</a>.</p>',
+			'<p>Jimvd.xyz is my web agency for businesses that need a modern website or web app. It covers the full delivery flow from discovery and design through development, launch, hosting, and maintenance, with a focus on SEO, fast Next.js builds, Vercel hosting, and responsive sites that help companies reach more customers online.</p><p>To quickly see examples of what I have created, visit the <a href="https://jimvd.xyz/testimonials">testimonials page</a>.</p>',
 	},
 ];
