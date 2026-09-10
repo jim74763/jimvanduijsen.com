@@ -9,19 +9,19 @@ export type ProjectItem = {
 export const projects: ProjectItem[] = [
 	{
 		title: "Havonyx",
-		year: "2026",
+		year: "Present",
 		link: "https://havonyx.com/?utm_source=jimvanduijsen.com&utm_medium=website&utm_campaign=portfolio&utm_content=about_page",
 		linkLabel: "Visit Havonyx",
 		contentHtml:
 			"<p>Havonyx is an agency that creates and maintains custom AI agents for businesses. We build practical agent systems around real workflows, connecting the tools, data, and automation needed to reduce repetitive work and help teams operate more efficiently.</p>",
 	},
 	{
-		title: "Freelance Work",
-		year: "2025",
-		link: "/contact",
-		linkLabel: "Contact me",
+		title: "Crypto Insiders",
+		year: "Present",
+		link: "https://crypto-insiders.nl",
+		linkLabel: "Visit Crypto Insiders",
 		contentHtml:
-			'<h3>Freelance Work</h3><p>I also work with clients as a freelancer.</p><p>Besides my own projects, I take on freelance work for people and businesses that need a more personal way to get a project built. I like working directly with clients.</p><p>I am currently working with notable clients such as <a href="https://crypto-insiders.nl">Crypto Insiders</a>.</p>',
+			'<p>I work with Crypto Insiders as a freelance developer, using Next.js, React, and Tailwind CSS to build their new website.</p><p>Besides my own projects, I take on freelance work for people and businesses that need a more personal way to get a project built. I like working directly with clients.</p><p><a href="/contact">Get in touch</a> if you would like to work together.</p>',
 	},
 	{
 		title: "Jimvd Web Agency",
