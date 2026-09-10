@@ -4,7 +4,7 @@
   "scripts": {
     "build:css": "tailwindcss -i ./src/styles.css -o ./public/assets/app.css --minify",
     "watch:css": "tailwindcss -i ./src/styles.css -o ./public/assets/app.css --watch=always",
-    "dev": "concurrently \"pnpm watch:css\" \"wrangler dev --ip 0.0.0.0\"",
+    "dev": "concurrently \"pnpm watch:css\" \"wrangler dev\"",
     "deploy": "pnpm build:css && wrangler deploy --minify",
     "cf-typegen": "wrangler types --env-interface CloudflareBindings",
     "lint": "biome check src",

@@ -21,7 +21,7 @@ export const projects: ProjectItem[] = [
 		link: "https://crypto-insiders.nl",
 		linkLabel: "Visit Crypto Insiders",
 		contentHtml:
-			'<h3>Crypto Insiders</h3><p>I work with Crypto Insiders as a freelance developer, using Next.js, React, and Tailwind CSS to build their new website.</p><p>Besides my own projects, I take on freelance work for people and businesses that need a more personal way to get a project built. I like working directly with clients.</p><p><a href="/contact">Get in touch</a> if you would like to work together.</p>',
+			'<p>I work with Crypto Insiders as a freelance developer, using Next.js, React, and Tailwind CSS to build their new website.</p><p>Besides my own projects, I take on freelance work for people and businesses that need a more personal way to get a project built. I like working directly with clients.</p><p><a href="/contact">Get in touch</a> if you would like to work together.</p>',
 	},
 	{
 		title: "Jimvd Web Agency",
