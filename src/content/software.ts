@@ -66,6 +66,13 @@ export const softwareCategories: SoftwareCategory[] = [
 		name: "AI tools",
 		items: [
 			{
+				name: "Herdr",
+				href: "https://herdr.dev",
+				icon: `${ICON_BASE}/herdr.svg`,
+				description:
+					"Terminal multiplexer for AI coding agents it keeps them running in the background and shows working, blocked, or idle status at a glance.",
+			},
+			{
 				name: "Claude",
 				href: "https://claude.ai",
 				icon: `${ICON_BASE}/claude.svg`,
