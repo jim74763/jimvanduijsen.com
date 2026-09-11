@@ -1,11 +1,14 @@
 {
   "name": "jimvanduijsen.com",
   "type": "module",
+  "packageManager": "pnpm@12.3.4",
   "scripts": {
+    "deps": "SHARP_IGNORE_GLOBAL_LIBVIPS=1 pnpm install",
     "build:css": "tailwindcss -i ./src/styles.css -o ./public/assets/app.css --minify",
     "watch:css": "tailwindcss -i ./src/styles.css -o ./public/assets/app.css --watch=always",
     "dev": "concurrently \"pnpm watch:css\" \"wrangler dev\"",
     "deploy": "pnpm build:css && wrangler deploy --minify",
+    "deploy:check": "wrangler deploy --dry-run --minify",
     "cf-typegen": "wrangler types --env-interface CloudflareBindings",
     "lint": "biome check src",
     "format": "biome format --write src",
