@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-This is a small Cloudflare Workers site built with Hono and Hono JSX. The worker entry point is `src/index.ts`, where routes are registered. Page renderers live in `src/web/pages/`, shared layout lives in `src/web/document.tsx`, and reusable UI pieces live in `src/web/components/`. Tailwind input is `src/styles.css`; the compiled stylesheet is `public/assets/app.css`. Static assets, favicons, manifests, and social icons belong under `public/`.
+This is a small Cloudflare Workers site built with Hono and Hono JSX. The worker entry point is `src/index.ts`, where routes are registered. Page renderers live in `src/pages/`, shared layout lives in `src/utils/document.tsx`, and reusable UI pieces live in `src/components/`. Tailwind input is `src/styles.css`; the compiled stylesheet is `public/assets/app.css`. Static assets, favicons, manifests, and social icons belong under `public/`.
 
 ## Build, Test, and Development Commands
 
@@ -16,7 +16,7 @@ Use `pnpm`; the repository includes `pnpm-lock.yaml`.
 
 ## Coding Style & Naming Conventions
 
-Use TypeScript with strict mode. Match the existing style: 2-space indentation, double quotes, semicolons, named exports, and JSX via `hono/jsx`. Components should use `PascalCase` filenames or exports when they render reusable UI, such as `Header`. Page factory functions should use lower camel case, such as `homePage`, and should live in `src/web/pages/`. Keep route registration centralized in `src/index.ts`.
+Use TypeScript with strict mode. Match the existing style: tab indentation, double quotes, semicolons, named exports, and JSX via `hono/jsx`. Components should use `PascalCase` filenames or exports when they render reusable UI, such as `Header`. Page factory functions should use lower camel case, such as `homePage`, and should live in `src/pages/`. Keep route registration centralized in `src/index.ts`.
 
 Prefer Tailwind utility classes for styling. When changing classes or `src/styles.css`, regenerate `public/assets/app.css` with `pnpm build:css`.
 
