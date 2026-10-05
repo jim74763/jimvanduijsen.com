@@ -1,19 +1,50 @@
 /* Jim van Duijsen home page: interactive 3D desk. Needs /assets/vendor/three.min.js (r128). Item copy comes from the #desk-content JSON block (src/content/home.ts). */
 (function () {
-  var THREE = window.THREE;
+  var THREE;
+  var root = document.documentElement;
   var stage = document.getElementById('c');
+  var sw = document.getElementById('modeSwitch');
   var CONTENT = {};
   try { CONTENT = JSON.parse(document.getElementById('desk-content').textContent) || {}; } catch (e) { CONTENT = {}; }
+
+  /* The page has two views, plain HTML and the 3D desk, picked by html[data-mode]. CSS does the showing and hiding. */
+  var ctl = null, booting = false;
+  function mode() { return root.getAttribute('data-mode') === 'simple' ? 'simple' : '3d'; }
   function fallback() {
-    document.getElementById('fallback').hidden = false;
-    stage.hidden = true;
-    ['hint', 'chips'].forEach(function (id) { document.getElementById(id).hidden = true; });
-    document.querySelector('.hud').hidden = true;
-    var tn = document.querySelector('.topnav'); if (tn) tn.hidden = true;
+    root.setAttribute('data-mode', 'simple');
+    if (sw) sw.hidden = true;
   }
-  if (!THREE) { fallback(); return; }
+  function loadThree(cb) {
+    if (window.THREE) { cb(); return; }
+    var s = document.createElement('script');
+    s.src = '/assets/vendor/three.min.js';
+    s.onload = cb; s.onerror = cb;
+    document.head.appendChild(s);
+  }
+  function show3d() {
+    if (ctl) { ctl.setActive(true); return; }
+    if (booting) return;
+    booting = true;
+    loadThree(function () {
+      booting = false;
+      THREE = window.THREE;
+      ctl = THREE ? boot() : null;
+      if (!ctl) { fallback(); return; }
+      if (mode() !== '3d') ctl.setActive(false);
+    });
+  }
+  function setMode(m, save) {
+    root.setAttribute('data-mode', m);
+    if (save) { try { localStorage.setItem('homeMode', m); } catch (e) { /* storage unavailable */ } }
+    if (m === '3d') show3d(); else if (ctl) ctl.setActive(false);
+  }
+  if (sw) sw.addEventListener('click', function () { setMode(mode() === '3d' ? 'simple' : '3d', true); });
+  if (!root.hasAttribute('data-mode')) root.setAttribute('data-mode', '3d');
+  if (mode() === '3d') show3d();
+
+  function boot() {
   var renderer;
-  try { renderer = new THREE.WebGLRenderer({ canvas: stage, antialias: true }); } catch (e) { fallback(); return; }
+  try { renderer = new THREE.WebGLRenderer({ canvas: stage, antialias: true }); } catch (e) { return null; }
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -666,6 +697,7 @@
     resize();
   }, { passive: false });
   window.addEventListener('keydown', function (e) {
+    if (!active) return;
     if (e.key === 'Escape') release();
     if (held) return;
     var s = 0.05;
@@ -688,7 +720,9 @@
 
   /* ---------- loop ---------- */
   var last = performance.now();
+  var active = true;
   function frame(now) {
+    if (!active) return;
     var dt = Math.min(0.05, (now - last) / 1000); last = now;
     for (var i = tweens.length - 1; i >= 0; i--) {
       var tw = tweens[i], k = Math.min(1, (now - tw.t0) / tw.dur);
@@ -720,4 +754,19 @@
     requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
+
+  return {
+    setActive: function (on) {
+      if (on === active) return;
+      active = on;
+      if (on) { resize(); last = performance.now(); requestAnimationFrame(frame); }
+      else {
+        var it = held;
+        release(); tweens.length = 0;
+        if (it) { it.obj.position.copy(it.homeP); it.obj.quaternion.copy(it.homeQ); it.obj.scale.copy(it.homeS); }
+        tip.hidden = true; down = null;
+      }
+    }
+  };
+  }
 })();

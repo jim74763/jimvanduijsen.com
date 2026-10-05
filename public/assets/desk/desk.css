@@ -30,7 +30,13 @@ body {
 .hud h1 { margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.15; }
 .hud p { margin: 4px 0 0; font: 500 11px/1.4 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute); }
 
-.topnav { position: fixed; right: 16px; top: calc(18px + env(safe-area-inset-top, 0px)); display: flex; gap: 18px; }
+.topbar { position: fixed; z-index: 5; right: 16px; top: calc(14px + env(safe-area-inset-top, 0px)); display: flex; align-items: center; gap: 18px; }
+.topnav { display: flex; gap: 18px; }
+.modeswitch { font: 500 11px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); background: rgba(17, 17, 17, 0.82); border: 1px solid var(--line); border-radius: 999px; padding: 9px 13px; cursor: pointer; transition: background 0.15s, color 0.15s, border-color 0.15s; }
+.modeswitch:hover { background: var(--ink); color: #111; border-color: var(--ink); }
+.modeswitch:focus-visible { outline: 2px solid var(--lamp); outline-offset: 2px; }
+.modeswitch .to-3d, html[data-mode="simple"] .modeswitch .to-simple { display: none; }
+html[data-mode="simple"] .modeswitch .to-3d { display: inline; }
 .topnav a { font: 500 11px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); text-decoration: none; padding: 6px 0; border-bottom: 1px solid transparent; }
 .topnav a:hover { border-bottom-color: var(--lamp); }
 
@@ -61,7 +67,7 @@ body {
 .btn:hover { filter: brightness(1.12); }
 .panel small { font: 400 11px/1.4 var(--mono); color: var(--mute); }
 
-.fallback { position: fixed; inset: 0; overflow: auto; display: grid; place-content: center; justify-items: center; gap: 14px; padding: 24px 16px; text-align: center; background: #050505; color: var(--ink); touch-action: auto; }
+.fallback { display: none; position: fixed; inset: 0; overflow: auto; flex-direction: column; align-items: center; gap: 14px; padding: 60px 16px 24px; text-align: center; background: #050505; color: var(--ink); touch-action: auto; }
 .fallback img { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; }
 .fallback h1 { margin: 0; font-size: 32px; }
 .fallback p { margin: 0; color: var(--mute); max-width: 40ch; }
@@ -69,12 +75,19 @@ body {
 .fallback nav a { display: block; padding: 14px 18px; border-radius: 999px; background: #1c1c1c; color: var(--ink); text-decoration: none; font-weight: 600; }
 .fallback nav a:hover { background: #2a2a2a; }
 
+html[data-mode="simple"] #c, html[data-mode="simple"] .hud, html[data-mode="simple"] .topnav, html[data-mode="simple"] .hint, html[data-mode="simple"] .dock, html[data-mode="simple"] .tip, html[data-mode="simple"] .panel { display: none !important; }
+html[data-mode="simple"] .fallback { display: flex; }
+.fallback > :first-child { margin-top: auto; }
+.fallback > :last-child { margin-bottom: auto; }
+
 @keyframes rise { from { opacity: 0; transform: translateY(calc(-50% + 10px)); } to { opacity: 1; transform: translateY(-50%); } }
 @keyframes rise2 { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 @media (max-width: 700px) {
 	.panel { right: 16px; left: 16px; top: auto; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); transform: none; width: auto; padding: 18px; animation: rise2 0.35s ease both; }
 	.panel h2 { font-size: 24px; }
 	.hint { bottom: calc(118px + env(safe-area-inset-bottom, 0px)); }
-	.topnav { right: auto; left: 16px; top: calc(72px + env(safe-area-inset-top, 0px)); gap: 14px; }
+	.topbar { display: contents; }
+	.topnav { position: fixed; left: 16px; top: calc(72px + env(safe-area-inset-top, 0px)); gap: 14px; }
+	.modeswitch { position: fixed; z-index: 5; right: 16px; top: calc(14px + env(safe-area-inset-top, 0px)); }
 }
 @media (prefers-reduced-motion: reduce) { .panel { animation: none; } }

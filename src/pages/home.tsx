@@ -18,6 +18,9 @@ const chips = [
 	{ view: "south", label: "Contact" },
 ];
 
+// Runs in <head> so the right view shows from the first paint: phones start on plain HTML, desktops on the 3D desk.
+const modeScript = `(function(){var m;try{m=localStorage.getItem("homeMode")}catch(e){}if(m!=="simple"&&m!=="3d")m=matchMedia("(max-width:700px),(pointer:coarse) and (max-width:1024px)").matches?"simple":"3d";document.documentElement.setAttribute("data-mode",m)})()`;
+
 const siteNav = [
 	{ label: "About", href: "/about" },
 	{ label: "Software", href: "/software" },
@@ -46,13 +49,19 @@ export default function DeskHomePage() {
 				<p>AI agents · Websites · Freelance</p>
 			</header>
 
-			<nav className="topnav" aria-label="Pages">
-				{siteNav.map((link) => (
-					<a key={link.href} href={link.href}>
-						{link.label}
-					</a>
-				))}
-			</nav>
+			<div className="topbar">
+				<nav className="topnav" aria-label="Pages">
+					{siteNav.map((link) => (
+						<a key={link.href} href={link.href}>
+							{link.label}
+						</a>
+					))}
+				</nav>
+				<button type="button" className="modeswitch" id="modeSwitch">
+					<span className="to-simple">Simple view</span>
+					<span className="to-3d">3D view</span>
+				</button>
+			</div>
 
 			<div className="hint" id="hint">
 				Drag to look around. Tap an object to pick it up.
@@ -100,7 +109,7 @@ export default function DeskHomePage() {
 				</div>
 			</aside>
 
-			<section className="fallback" id="fallback" hidden>
+			<section className="fallback" id="fallback">
 				<img src={profileImage} alt="Jim van Duijsen" />
 				<h1>Jim van Duijsen</h1>
 				<p>
@@ -130,6 +139,18 @@ export default function DeskHomePage() {
 					))}
 				</nav>
 				<p>{contactEmail}</p>
+				<p className="legal">
+					{footerLinks
+						.filter((link) => !link.href.startsWith("mailto:"))
+						.map((link) => (
+							<a key={link.label} href={link.href}>
+								{link.label}
+							</a>
+						))}
+					{footerMetaItems.map((item) => (
+						<span key={item.label}>{item.label}</span>
+					))}
+				</p>
 			</section>
 
 			<script
@@ -137,7 +158,6 @@ export default function DeskHomePage() {
 				id="desk-content"
 				dangerouslySetInnerHTML={{ __html: deskContentJson }}
 			/>
-			<script defer src="/assets/vendor/three.min.js" />
 			<script defer src="/assets/desk/desk.js" />
 		</main>
 	);
@@ -152,6 +172,7 @@ export const homePage = () => {
 		bgDark: true,
 		metadata: (
 			<>
+				<script dangerouslySetInnerHTML={{ __html: modeScript }} />
 				<link rel="stylesheet" href="/assets/desk/desk.css" />
 				<noscript>
 					<link rel="stylesheet" href="/assets/desk/noscript.css" />
