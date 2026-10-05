@@ -527,6 +527,21 @@
     return null;
   }
 
+  /* the glowing marker above an object counts as part of it: pick by screen distance */
+  function pickItem(x, y) {
+    var it = pickAt(x, y, items.map(function (i) { return i.obj; }));
+    if (it) return it;
+    var best = null, bestD = 34 * 34, v = new THREE.Vector3();
+    items.forEach(function (i) {
+      v.copy(i.sprite.position).project(camera);
+      if (v.z > 1) return;
+      var dx = (v.x + 1) / 2 * window.innerWidth - x, dy = (1 - v.y) / 2 * window.innerHeight - y;
+      var d = dx * dx + dy * dy;
+      if (d < bestD) { bestD = d; best = i; }
+    });
+    return best;
+  }
+
   function showPanel(it) {
     document.getElementById('pTag').textContent = it.tag;
     document.getElementById('pTitle').textContent = it.title;
@@ -626,7 +641,7 @@
         }
       }
     } else if (!held && e.pointerType === 'mouse') {
-      var it = pickAt(e.clientX, e.clientY, items.map(function (i) { return i.obj; }));
+      var it = pickItem(e.clientX, e.clientY);
       if (it) { stage.classList.add('over'); tip.hidden = false; tip.textContent = it.title; tip.style.left = e.clientX + 'px'; tip.style.top = e.clientY + 'px'; }
       else { stage.classList.remove('over'); tip.hidden = true; }
     }
@@ -638,7 +653,7 @@
     if (held) {
       if (!pickAt(e.clientX, e.clientY, [held.obj])) release();
     } else {
-      var it = pickAt(e.clientX, e.clientY, items.map(function (i) { return i.obj; }));
+      var it = pickItem(e.clientX, e.clientY);
       if (it) pick(it);
     }
   }
