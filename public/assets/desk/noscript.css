@@ -1,0 +1,3 @@
+/* Shown only when JavaScript is off: hide the 3D controls and show the plain links. */
+#c, .hud, .dock, .hint, .topnav { display: none !important; }
+.fallback[hidden] { display: grid !important; }

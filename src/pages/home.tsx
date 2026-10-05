@@ -1,72 +1,144 @@
-import { Footer } from "../components/footer.js";
 import { JsonLd } from "../components/json-ld.js";
-import { links, profileImage, socials } from "../content/home.js";
+import { footerLinks, footerMetaItems } from "../content/footer.js";
+import {
+	contactEmail,
+	deskItems,
+	links,
+	profileImage,
+	socials,
+} from "../content/home.js";
 import { renderPage } from "../utils/document.js";
 import { homeSchema } from "../utils/schema.org/home.js";
 
-export default function JimLandingPage() {
+const chips = [
+	{ view: "desk", label: "Projects" },
+	{ view: "shelf", label: "Experience" },
+	{ view: "west", label: "Experiments" },
+	{ view: "east", label: "About" },
+	{ view: "south", label: "Contact" },
+];
+
+const siteNav = [
+	{ label: "About", href: "/about" },
+	{ label: "Software", href: "/software" },
+	{ label: "Contact", href: "/contact" },
+];
+
+// Keep "<" out of the inline JSON so the content can never close the script tag.
+const deskContentJson = JSON.stringify({ items: deskItems }).replace(
+	/</g,
+	"\\u003c",
+);
+
+export default function DeskHomePage() {
 	return (
-		<main className="flex min-h-screen w-full flex-col overflow-x-hidden bg-[linear-gradient(180deg,#666_0%,#4d4d4d_25%,#333_50%,#1a1a1a_75%,#0d0d0d_87.5%,#060606_93.75%,#000_100%)] text-white">
+		<main>
 			<JsonLd schema={homeSchema} />
-			<div className="mx-auto flex w-full flex-1 max-w-[1280px] items-center justify-center gap-[30px] px-6 py-12 md:px-24 max-lg:flex-col">
-				<section className="flex w-full max-w-[529px] flex-shrink-0 flex-col items-center gap-[15px] py-px">
-					<div className="h-[428px] w-full overflow-hidden rounded-[15px]">
-						<img
-							src={profileImage}
-							alt="Jim van Duijsen"
-							className="h-full w-full object-cover"
-						/>
-					</div>
 
-					<h1 className="min-h-[55px] text-center text-4xl font-semibold leading-[1.45]">
-						Jim van Duijsen
-					</h1>
+			<canvas
+				id="c"
+				tabIndex={0}
+				aria-label="Interactive 3D desk. Drag to look around, tap an object to pick it up."
+			/>
 
-					<div className="flex w-full items-center justify-center gap-2.5 max-sm:flex-col">
-						{socials.map((social) => (
-							<a
-								key={social.href}
-								href={social.href}
-								target="_blank"
-								rel="noreferrer"
-								aria-label={social.label}
-								className="flex h-[50px] w-[200px] flex-shrink-0 cursor-pointer items-center gap-2.5 rounded-[30px] bg-[#1c1c1c] px-3.5 py-2.5 transition hover:bg-[#2a2a2a]"
-							>
-								<span className="relative block h-6 w-6 flex-shrink-0 overflow-hidden">
-									<img
-										src={social.icon}
-										alt=""
-										loading="lazy"
-										className="absolute inset-0 block h-full w-full object-contain"
-									/>
-								</span>
+			<header className="hud">
+				<h1>Jim van Duijsen</h1>
+				<p>AI agents · Websites · Freelance</p>
+			</header>
 
-								<span className="whitespace-nowrap text-left text-xl font-normal leading-normal">
-									{social.text}
-								</span>
+			<nav className="topnav" aria-label="Pages">
+				{siteNav.map((link) => (
+					<a key={link.href} href={link.href}>
+						{link.label}
+					</a>
+				))}
+			</nav>
+
+			<div className="hint" id="hint">
+				Drag to look around. Tap an object to pick it up.
+			</div>
+
+			<div className="dock" id="chips">
+				<nav className="chiprow" aria-label="Jump to a part of the room">
+					{chips.map((chip) => (
+						<button
+							key={chip.view}
+							type="button"
+							className="chip"
+							data-view={chip.view}
+						>
+							{chip.label}
+						</button>
+					))}
+				</nav>
+				<p className="legal">
+					{footerLinks
+						.filter((link) => !link.href.startsWith("mailto:"))
+						.map((link) => (
+							<a key={link.label} href={link.href}>
+								{link.label}
 							</a>
 						))}
-					</div>
-				</section>
+					{footerMetaItems.map((item) => (
+						<span key={item.label}>{item.label}</span>
+					))}
+				</p>
+			</div>
 
-				<section className="flex w-full max-w-[529px] flex-shrink-0 flex-col items-center justify-center gap-5 px-0 md:px-[50px]">
+			<div className="tip" id="tip" hidden />
+
+			<aside className="panel" id="panel" hidden aria-live="polite">
+				<div className="tag" id="pTag" />
+				<h2 id="pTitle">Item</h2>
+				<p id="pText" />
+				<div className="extra" id="pExtra" />
+				<div className="row">
+					<button type="button" className="btn primary" id="back">
+						Put back
+					</button>
+					<small>Drag to turn it around</small>
+				</div>
+			</aside>
+
+			<section className="fallback" id="fallback" hidden>
+				<img src={profileImage} alt="Jim van Duijsen" />
+				<h1>Jim van Duijsen</h1>
+				<p>
+					I build custom AI agents and modern websites for businesses. Available
+					for freelance projects.
+				</p>
+				<nav aria-label="Links">
 					{links.map((link) => (
 						<a
 							key={link.href}
 							href={link.href}
 							target={link.isExternal ? "_blank" : undefined}
 							rel={link.isExternal ? "noreferrer" : undefined}
-							className="relative flex h-[76px] w-full max-w-[430px] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-[#1c1c1c] px-[46px] py-[23px] text-center text-2xl font-semibold text-white transition hover:bg-[#2a2a2a] focus:outline-none focus:ring-2 focus:ring-white/40"
 						>
 							{link.label}
 						</a>
 					))}
-				</section>
-			</div>
-			<br />
-			<br />
-			<br />
-			<Footer />
+					{socials.map((social) => (
+						<a
+							key={social.href}
+							href={social.href}
+							target="_blank"
+							rel="noreferrer"
+						>
+							{social.label}
+						</a>
+					))}
+				</nav>
+				<p>{contactEmail}</p>
+			</section>
+
+			<script
+				type="application/json"
+				id="desk-content"
+				dangerouslySetInnerHTML={{ __html: deskContentJson }}
+			/>
+			<script defer src="/assets/vendor/three.min.js" />
+			<script defer src="/assets/desk/desk.js" />
 		</main>
 	);
 }
@@ -78,6 +150,14 @@ export const homePage = () => {
 			"Jim van Duijsen builds custom AI agents and modern websites for businesses. Founder of Havonyx and Jimvd Web Agency. Available for freelance projects.",
 		canonicalPath: "/",
 		bgDark: true,
-		children: <JimLandingPage />,
+		metadata: (
+			<>
+				<link rel="stylesheet" href="/assets/desk/desk.css" />
+				<noscript>
+					<link rel="stylesheet" href="/assets/desk/noscript.css" />
+				</noscript>
+			</>
+		),
+		children: <DeskHomePage />,
 	});
 };

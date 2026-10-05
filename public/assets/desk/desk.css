@@ -1,0 +1,80 @@
+/* Home page: 3D desk scene. One dark monochrome room lit by a warm desk lamp. */
+:root {
+	--ink: #efece6;
+	--line: #2d2d2d;
+	--mute: #8f8b84;
+	--lamp: #ffb866;
+	--sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	--mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+	color-scheme: dark;
+}
+[hidden] { display: none !important; }
+html, body { height: 100%; }
+body {
+	margin: 0;
+	background: #050505;
+	color: var(--ink);
+	font-family: var(--sans);
+	overflow: hidden;
+	touch-action: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+#c { position: fixed; inset: 0; width: 100%; height: 100%; display: block; cursor: grab; outline: none; }
+#c.dragging { cursor: grabbing; }
+#c.over { cursor: pointer; }
+.sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+.hud, .topnav a, .hint, .legal { text-shadow: 0 1px 8px rgba(0, 0, 0, 0.95); }
+.hud { position: fixed; left: 16px; top: calc(16px + env(safe-area-inset-top, 0px)); pointer-events: none; max-width: calc(100% - 32px); }
+.hud h1 { margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.15; }
+.hud p { margin: 4px 0 0; font: 500 11px/1.4 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute); }
+
+.topnav { position: fixed; right: 16px; top: calc(18px + env(safe-area-inset-top, 0px)); display: flex; gap: 18px; }
+.topnav a { font: 500 11px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); text-decoration: none; padding: 6px 0; border-bottom: 1px solid transparent; }
+.topnav a:hover { border-bottom-color: var(--lamp); }
+
+.hint { position: fixed; left: 16px; right: 16px; bottom: calc(76px + env(safe-area-inset-bottom, 0px)); text-align: center; font: 400 12px/1.4 var(--mono); color: var(--mute); pointer-events: none; transition: opacity 0.5s; }
+.hint.gone, .hint.off { opacity: 0; }
+
+.dock { position: fixed; left: 16px; right: 16px; bottom: calc(10px + env(safe-area-inset-bottom, 0px)); display: flex; flex-direction: column; align-items: center; gap: 10px; transition: opacity 0.3s; }
+.dock.off { opacity: 0; pointer-events: none; }
+.chiprow { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.chip { font: 500 11px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); background: rgba(17, 17, 17, 0.82); border: 1px solid var(--line); border-radius: 999px; padding: 10px 14px; cursor: pointer; transition: background 0.15s, color 0.15s, border-color 0.15s; }
+.chip:hover { background: var(--lamp); color: #17110a; border-color: var(--lamp); }
+.chip:focus-visible, .btn:focus-visible, #c:focus-visible, .topnav a:focus-visible, .legal a:focus-visible { outline: 2px solid var(--lamp); outline-offset: 2px; }
+.legal { margin: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 14px; font: 400 10px/1.4 var(--mono); color: var(--mute); }
+.legal a { color: var(--mute); text-decoration: underline; text-underline-offset: 2px; }
+.legal a:hover { color: var(--ink); }
+
+.tip { position: fixed; pointer-events: none; font: 500 11px/1 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; background: var(--ink); color: #111; padding: 7px 9px; border-radius: 6px; transform: translate(12px, 14px); white-space: nowrap; }
+
+.panel { position: fixed; right: 24px; top: 50%; transform: translateY(-50%); width: min(340px, calc(100vw - 32px)); background: rgba(17, 17, 17, 0.9); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid var(--line); border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 12px; -webkit-user-select: text; user-select: text; touch-action: auto; animation: rise 0.35s ease both; }
+.panel .tag { font: 500 11px/1 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--lamp); }
+.panel h2 { margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; text-wrap: balance; }
+.panel p { margin: 0; font-size: 15px; line-height: 1.55; max-width: 65ch; color: #d8d5cf; }
+.panel .extra { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; min-width: 0; }
+.mail { font: 500 13px/1.2 var(--mono); background: #0a0a0a; border: 1px solid var(--line); border-radius: 6px; padding: 9px 10px; overflow-wrap: anywhere; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.btn { font: 600 13px/1 var(--sans); border-radius: 8px; padding: 11px 14px; cursor: pointer; border: 1px solid var(--line); background: #1b1b1b; color: var(--ink); text-decoration: none; display: inline-block; }
+.btn.primary { background: var(--lamp); border-color: var(--lamp); color: #17110a; }
+.btn:hover { filter: brightness(1.12); }
+.panel small { font: 400 11px/1.4 var(--mono); color: var(--mute); }
+
+.fallback { position: fixed; inset: 0; overflow: auto; display: grid; place-content: center; justify-items: center; gap: 14px; padding: 24px 16px; text-align: center; background: #050505; color: var(--ink); touch-action: auto; }
+.fallback img { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; }
+.fallback h1 { margin: 0; font-size: 32px; }
+.fallback p { margin: 0; color: var(--mute); max-width: 40ch; }
+.fallback nav { display: flex; flex-direction: column; gap: 10px; width: min(320px, 100%); }
+.fallback nav a { display: block; padding: 14px 18px; border-radius: 999px; background: #1c1c1c; color: var(--ink); text-decoration: none; font-weight: 600; }
+.fallback nav a:hover { background: #2a2a2a; }
+
+@keyframes rise { from { opacity: 0; transform: translateY(calc(-50% + 10px)); } to { opacity: 1; transform: translateY(-50%); } }
+@keyframes rise2 { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@media (max-width: 700px) {
+	.panel { right: 16px; left: 16px; top: auto; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); transform: none; width: auto; padding: 18px; animation: rise2 0.35s ease both; }
+	.panel h2 { font-size: 24px; }
+	.hint { bottom: calc(118px + env(safe-area-inset-bottom, 0px)); }
+	.topnav { right: auto; left: 16px; top: calc(72px + env(safe-area-inset-top, 0px)); gap: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .panel { animation: none; } }
