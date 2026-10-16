@@ -107,6 +107,27 @@ export const softwareCategories: SoftwareCategory[] = [
 					"MCP server giving AI tools access to your Instantly campaigns, leads, and analytics.",
 			},
 			{
+				name: "GBrain",
+				href: "https://github.com/garrytan/gbrain",
+				icon: `${ICON_BASE}/github.svg`,
+				description:
+					"Self-hosted, open-source memory layer that works as one centralized knowledge base about me. Every agent connects to it over MCP instead of relying on its own limited knowledge of me.",
+			},
+			{
+				name: "Brightspace MCP",
+				href: "https://github.com/RohanMuppa/brightspace-mcp-server",
+				icon: `${ICON_BASE}/github.svg`,
+				description:
+					"MCP server that gives AI assistants read-only access to your Brightspace courses, grades, due dates, and announcements.",
+			},
+			{
+				name: "LinkedIn MCP",
+				href: "https://github.com/stickerdaniel/linkedin-mcp-server",
+				icon: `${ICON_BASE}/github.svg`,
+				description:
+					"MCP server that lets AI agents read profiles, research companies, and search jobs on LinkedIn through your own browser session.",
+			},
+			{
 				name: "remindctl",
 				href: "https://github.com/steipete/remindctl",
 				icon: `${ICON_BASE}/github.svg`,
