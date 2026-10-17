@@ -3,11 +3,15 @@ import type { Child } from "hono/jsx";
 const SITE_URL = "https://www.jimvanduijsen.com";
 const OG_IMAGE = `${SITE_URL}/assets/og-image.png`;
 
+const THEME_INIT_SCRIPT = `try{var t=localStorage.getItem("theme");if(t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches)){document.documentElement.classList.add("dark")}}catch(e){}`;
+
+const THEME_TOGGLE_SCRIPT = `(function(){var b=document.getElementById("theme-toggle");if(!b)return;var r=document.documentElement;function s(){b.setAttribute("aria-pressed",r.classList.contains("dark")?"true":"false")}s();b.addEventListener("click",function(){var d=r.classList.toggle("dark");try{localStorage.setItem("theme",d?"dark":"light")}catch(e){}s()})})();`;
+
 type PageOptions = {
 	title: string;
 	description?: string;
 	canonicalPath?: string;
-	bgDark?: boolean;
+	themeToggle?: boolean;
 	metadata?: Child;
 	children: Child;
 };
@@ -16,7 +20,7 @@ export const renderPage = ({
 	title,
 	description,
 	canonicalPath = "/",
-	bgDark,
+	themeToggle,
 	metadata,
 	children,
 }: PageOptions) => {
@@ -65,7 +69,21 @@ export const renderPage = ({
 				) : null}
 				<meta name="twitter:image" content={OG_IMAGE} />
 				<meta name="twitter:image:alt" content="Jim van Duijsen" />
-				{bgDark ? <meta name="theme-color" content="#666666" /> : null}
+				{themeToggle ? (
+					<>
+						<meta
+							name="theme-color"
+							content="#ffffff"
+							media="(prefers-color-scheme: light)"
+						/>
+						<meta
+							name="theme-color"
+							content="#0d0d0d"
+							media="(prefers-color-scheme: dark)"
+						/>
+						<script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+					</>
+				) : null}
 				{metadata}
 				<link rel="stylesheet" href="/assets/app.css" />
 				<script
@@ -75,7 +93,12 @@ export const renderPage = ({
 					data-host-url="/u"
 				/>
 			</head>
-			<body className={bgDark ? "bg-black" : undefined}>{children}</body>
+			<body className={themeToggle ? "bg-white dark:bg-[#0d0d0d]" : undefined}>
+				{children}
+				{themeToggle ? (
+					<script dangerouslySetInnerHTML={{ __html: THEME_TOGGLE_SCRIPT }} />
+				) : null}
+			</body>
 		</html>
 	);
 };

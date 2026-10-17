@@ -13,6 +13,10 @@ export const footerLinks: FooterLink[] = [
 		href: "https://legal.app.jimvd.xyz",
 	},
 	{
+		label: "Software I recommend",
+		href: "/software",
+	},
+	{
 		label: "hello@jimvanduijsen.nl",
 		href: "mailto:hello@jimvanduijsen.nl",
 	},
