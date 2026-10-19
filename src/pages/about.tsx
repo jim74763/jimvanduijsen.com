@@ -1,9 +1,53 @@
 import { Footer } from "../components/footer.js";
 import { Header } from "../components/header.js";
 import { JsonLd } from "../components/json-ld.js";
-import { projects } from "../content/about.js";
+import {
+	type AboutItem,
+	experience,
+	otherLinks,
+	projects,
+	skills,
+	story,
+} from "../content/about.js";
 import { renderPage } from "../utils/document.js";
 import { aboutSchema } from "../utils/schema.org/about.js";
+
+function ItemList({ items }: { items: AboutItem[] }) {
+	return (
+		<ul className="mb-14 w-full">
+			{items.map((item) => (
+				<li key={item.title} className="border-b border-black/15 py-5">
+					<h3 className="text-xl font-semibold tracking-tight">{item.title}</h3>
+					{item.subtitle ? (
+						<p className="text-base font-medium text-black/60">
+							{item.subtitle}
+						</p>
+					) : null}
+					<div className="mt-2 max-w-xl text-base font-medium leading-relaxed text-black/65">
+						{item.body.map((paragraph) => (
+							<p key={paragraph}>{paragraph}</p>
+						))}
+						{item.bullets ? (
+							<ul className="mt-3 list-disc space-y-2 pl-5">
+								{item.bullets.map((bullet) => (
+									<li key={bullet}>{bullet}</li>
+								))}
+							</ul>
+						) : null}
+					</div>
+					{item.link ? (
+						<a
+							href={item.link}
+							className="mt-3 inline-flex text-base font-semibold tracking-tight text-black transition hover:opacity-60"
+						>
+							{item.linkLabel ?? "Visit"}
+						</a>
+					) : null}
+				</li>
+			))}
+		</ul>
+	);
+}
 
 export default function PortfolioPage() {
 	return (
@@ -11,7 +55,7 @@ export default function PortfolioPage() {
 			<JsonLd schema={aboutSchema(projects)} />
 			<Header />
 			<section className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-6 pb-28 pt-[104px] sm:px-12 sm:pb-32">
-				<header className="mb-8 max-w-xl">
+				<header className="mb-14 max-w-xl">
 					<div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full border border-black/10 relative overflow-hidden">
 						<img
 							src="/assets/images/jim-mirror-avatar.png"
@@ -24,59 +68,42 @@ export default function PortfolioPage() {
 						About me
 					</h1>
 
-					<p className="text-base font-medium leading-relaxed text-black/65">
-						I build AI agents and automation workflows. I am currently building
-						Havonyx, a done-for-you AI agency that turns repetitive business
-						tasks into practical AI automation systems. <br />I also work as a
-						freelance developer with notable clients such as Crypto-Insiders.
+					{story.paragraphs.map((paragraph) => (
+						<p
+							key={paragraph}
+							className="text-base font-medium leading-relaxed text-black/65"
+						>
+							{paragraph}
+						</p>
+					))}
+					<p className="mt-3 text-base font-medium leading-relaxed text-black/65">
+						<span className="text-black">Languages:</span> {story.languages}
 					</p>
 				</header>
 
-				<h2 className="mb-4 text-3xl font-semibold tracking-tight">
-					Projects i have worked on
+				<h2 className="mb-2 text-3xl font-semibold tracking-tight">
+					Experience
 				</h2>
+				<ItemList items={experience} />
 
-				<ul className="w-full">
-					{projects.map((project) => (
-						<li key={`${project.title}-${project.year}`}>
-							<details className="project-disclosure border-b border-black/15">
-								<summary className="flex min-h-16 cursor-pointer items-center justify-between gap-4 py-4 pr-2 text-black">
-									<span className="min-w-0 flex-1 truncate text-xl font-semibold tracking-tight">
-										{project.title}
-									</span>
-									<span className="flex shrink-0 items-center gap-4">
-										<span className="text-xl font-medium tracking-tight text-black/60">
-											{project.year}
-										</span>
-										<img
-											src="/assets/icons/chevron-down.svg"
-											width="18"
-											height="18"
-											alt=""
-											aria-hidden="true"
-											className="project-disclosure-icon shrink-0 transition"
-										/>
-									</span>
-								</summary>
+				<h2 className="mb-2 text-3xl font-semibold tracking-tight">
+					Featured projects
+				</h2>
+				<ItemList items={projects} />
 
-								<div className="pb-5 pr-2">
-									<div
-										className="project-disclosure-content max-w-xl text-base font-medium leading-relaxed text-black/65"
-										dangerouslySetInnerHTML={{
-											__html: project.contentHtml,
-										}}
-									/>
+				<h2 className="mb-2 text-3xl font-semibold tracking-tight">Skills</h2>
+				<ItemList items={skills} />
 
-									{project.link ? (
-										<a
-											href={project.link}
-											className="mt-4 inline-flex text-base font-semibold tracking-tight text-black transition hover:opacity-60"
-										>
-											{project.linkLabel ?? "Visit project"}
-										</a>
-									) : null}
-								</div>
-							</details>
+				<h2 className="mb-4 text-3xl font-semibold tracking-tight">Other</h2>
+				<ul className="space-y-2">
+					{otherLinks.map((link) => (
+						<li key={link.href}>
+							<a
+								href={link.href}
+								className="text-base font-semibold tracking-tight text-black transition hover:opacity-60"
+							>
+								{link.label}
+							</a>
 						</li>
 					))}
 				</ul>
@@ -88,9 +115,9 @@ export default function PortfolioPage() {
 
 export const aboutPage = () => {
 	return renderPage({
-		title: "About Jim van Duijsen | AI Agent Developer & Web Developer",
+		title: "About Jim van Duijsen | Frontend Developer",
 		description:
-			"Jim van Duijsen builds custom AI agents and automation workflows. Founder of Havonyx and Jimvd Web Agency. Freelance developer for clients like Crypto Insiders.",
+			"Jim van Duijsen is a frontend developer working in Next.js, React and TypeScript, growing into full stack. Available for part-time work.",
 		canonicalPath: "/about",
 		children: <PortfolioPage />,
 	});
