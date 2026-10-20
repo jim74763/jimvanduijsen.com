@@ -26,7 +26,7 @@ const BioHighlightTrigger = ({ id, label, description }: BioHighlight) => {
 			<span
 				id={tipId}
 				role="tooltip"
-				className="pointer-events-none invisible absolute inset-x-0 top-full z-10 mt-2.5 rounded-xl border border-[#e4e4e4] bg-white px-5 py-4 text-left text-[15px] leading-relaxed text-[#333] opacity-0 shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100 dark:border-[#2e2e2e] dark:bg-[#0d0d0d] dark:text-[#c4c4c4] dark:shadow-[0_12px_32px_rgba(0,0,0,0.5)]"
+				className="pointer-events-none invisible absolute inset-x-0 top-full z-10 mt-2.5 rounded-xl border border-border bg-background px-5 py-4 text-left text-[15px] leading-relaxed text-secondary-foreground opacity-0 shadow-[var(--tooltip-shadow)] transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100"
 			>
 				{description}
 			</span>
@@ -36,7 +36,7 @@ const BioHighlightTrigger = ({ id, label, description }: BioHighlight) => {
 
 export default function JimLandingPage() {
 	return (
-		<main className="flex min-h-screen w-full flex-col overflow-x-hidden bg-white text-[#111] transition-colors dark:bg-[#0d0d0d] dark:text-[#f5f5f5]">
+		<main className="flex min-h-screen w-full flex-col overflow-x-hidden bg-background text-foreground">
 			<JsonLd schema={homeSchema} />
 			<div className="mx-auto flex w-full max-w-[1280px] flex-1 flex-col gap-22 px-6 pb-14 pt-16 md:px-24">
 				<div className="flex items-center justify-center gap-[30px] max-lg:flex-col max-lg:gap-12">
@@ -54,7 +54,7 @@ export default function JimLandingPage() {
 						</h1>
 
 						<div className="relative w-full">
-							<p className="text-lg leading-[1.7] text-[#444] dark:text-[#c4c4c4]">
+							<p className="text-lg leading-[1.7] text-secondary-foreground">
 								{bio.beforeWork}
 								<BioHighlightTrigger {...bio.work} />
 								{bio.betweenHighlights}
@@ -71,7 +71,7 @@ export default function JimLandingPage() {
 									target="_blank"
 									rel="noreferrer"
 									aria-label={social.label}
-									className="flex h-[50px] w-[200px] flex-shrink-0 cursor-pointer items-center gap-2.5 rounded-[30px] bg-[#f3f3f3] px-3.5 py-2.5 transition hover:bg-[#e8e8e8] dark:bg-[#1c1c1c] dark:hover:bg-[#2a2a2a]"
+									className="flex h-[50px] w-[200px] flex-shrink-0 cursor-pointer items-center gap-2.5 rounded-[30px] bg-surface px-3.5 py-2.5 transition hover:bg-surface-hover"
 								>
 									<span className="relative block h-6 w-6 flex-shrink-0 overflow-hidden">
 										<img
@@ -79,7 +79,7 @@ export default function JimLandingPage() {
 											alt=""
 											loading="lazy"
 											className={`absolute inset-0 block h-full w-full object-contain${
-												social.label === "GitHub" ? " invert dark:invert-0" : ""
+												social.label === "GitHub" ? " theme-brand-icon" : ""
 											}`}
 										/>
 									</span>
@@ -102,7 +102,7 @@ export default function JimLandingPage() {
 								href={link.href}
 								target={link.isExternal ? "_blank" : undefined}
 								rel={link.isExternal ? "noreferrer" : undefined}
-								className="relative flex h-[76px] w-full max-w-[430px] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-[#f3f3f3] px-[46px] py-[23px] text-center text-2xl font-semibold transition hover:bg-[#111] hover:text-white focus:outline-none focus:ring-2 focus:ring-current/40 dark:bg-[#1c1c1c] dark:hover:bg-[#f5f5f5] dark:hover:text-[#0d0d0d]"
+								className="relative flex h-[76px] w-full max-w-[430px] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-surface px-[46px] py-[23px] text-center text-2xl font-semibold transition hover:bg-foreground hover:text-background focus:outline-none focus:ring-2 focus:ring-current/40"
 							>
 								{link.label}
 							</a>
@@ -129,7 +129,7 @@ export default function JimLandingPage() {
 									href={project.href}
 									target="_blank"
 									rel="noreferrer"
-									className="flex flex-col gap-4 rounded-[15px] border border-[#e4e4e4] p-4 transition hover:border-[#111] dark:border-[#2e2e2e] dark:hover:border-[#f5f5f5]"
+									className="flex flex-col gap-4 rounded-[15px] border border-border p-4 transition hover:border-foreground"
 								>
 									{project.image ? (
 										<img
@@ -139,11 +139,11 @@ export default function JimLandingPage() {
 											className="aspect-[16/10] w-full rounded-[10px] object-cover"
 										/>
 									) : (
-										<div className="aspect-[16/10] w-full rounded-[10px] bg-[#f3f3f3] dark:bg-[#1c1c1c]" />
+										<div className="aspect-[16/10] w-full rounded-[10px] bg-surface" />
 									)}
 									<div className="flex flex-col gap-1.5 px-1 pb-1">
 										<div className="text-xl font-semibold">{project.title}</div>
-										<div className="text-base leading-relaxed text-[#555] dark:text-[#b0b0b0]">
+										<div className="text-base leading-relaxed text-subtle-foreground">
 											{project.description}
 										</div>
 									</div>
@@ -154,7 +154,7 @@ export default function JimLandingPage() {
 				) : null}
 			</div>
 
-			<Footer themeToggle />
+			<Footer />
 		</main>
 	);
 }
@@ -165,7 +165,6 @@ export const homePage = () => {
 		description:
 			"Jim van Duijsen builds custom AI agents and modern websites for businesses. Founder of Havonyx and Jimvd Web Agency. Available for freelance projects.",
 		canonicalPath: "/",
-		themeToggle: true,
 		children: <JimLandingPage />,
 	});
 };

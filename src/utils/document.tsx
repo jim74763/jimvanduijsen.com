@@ -5,13 +5,12 @@ const OG_IMAGE = `${SITE_URL}/assets/og-image.png`;
 
 const THEME_INIT_SCRIPT = `try{var t=localStorage.getItem("theme");if(t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches)){document.documentElement.classList.add("dark")}}catch(e){}`;
 
-const THEME_TOGGLE_SCRIPT = `(function(){var b=document.getElementById("theme-toggle");if(!b)return;var r=document.documentElement;function s(){b.setAttribute("aria-pressed",r.classList.contains("dark")?"true":"false")}s();b.addEventListener("click",function(){var d=r.classList.toggle("dark");try{localStorage.setItem("theme",d?"dark":"light")}catch(e){}s()})})();`;
+const THEME_TOGGLE_SCRIPT = `(function(){var b=document.getElementById("theme-toggle"),l=document.getElementById("theme-toggle-label");if(!b||!l)return;var r=document.documentElement;function s(){var d=r.classList.contains("dark");b.setAttribute("aria-pressed",d?"true":"false");l.textContent=d?"Light mode":"Dark mode"}s();b.addEventListener("click",function(){r.classList.add("theme-switching");var d=r.classList.toggle("dark");void r.offsetWidth;r.classList.remove("theme-switching");try{localStorage.setItem("theme",d?"dark":"light")}catch(e){}s()})})();`;
 
 type PageOptions = {
 	title: string;
 	description?: string;
 	canonicalPath?: string;
-	themeToggle?: boolean;
 	metadata?: Child;
 	children: Child;
 };
@@ -20,7 +19,6 @@ export const renderPage = ({
 	title,
 	description,
 	canonicalPath = "/",
-	themeToggle,
 	metadata,
 	children,
 }: PageOptions) => {
@@ -69,21 +67,17 @@ export const renderPage = ({
 				) : null}
 				<meta name="twitter:image" content={OG_IMAGE} />
 				<meta name="twitter:image:alt" content="Jim van Duijsen" />
-				{themeToggle ? (
-					<>
-						<meta
-							name="theme-color"
-							content="#ffffff"
-							media="(prefers-color-scheme: light)"
-						/>
-						<meta
-							name="theme-color"
-							content="#0d0d0d"
-							media="(prefers-color-scheme: dark)"
-						/>
-						<script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
-					</>
-				) : null}
+				<meta
+					name="theme-color"
+					content="#ffffff"
+					media="(prefers-color-scheme: light)"
+				/>
+				<meta
+					name="theme-color"
+					content="#0d0d0d"
+					media="(prefers-color-scheme: dark)"
+				/>
+				<script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
 				{metadata}
 				<link rel="stylesheet" href="/assets/app.css" />
 				<script
@@ -93,11 +87,9 @@ export const renderPage = ({
 					data-host-url="/u"
 				/>
 			</head>
-			<body className={themeToggle ? "bg-white dark:bg-[#0d0d0d]" : undefined}>
+			<body className="bg-background text-foreground">
 				{children}
-				{themeToggle ? (
-					<script dangerouslySetInnerHTML={{ __html: THEME_TOGGLE_SCRIPT }} />
-				) : null}
+				<script dangerouslySetInnerHTML={{ __html: THEME_TOGGLE_SCRIPT }} />
 			</body>
 		</html>
 	);

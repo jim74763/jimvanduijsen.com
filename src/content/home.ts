@@ -25,7 +25,7 @@ export type ProjectItem = {
 	imageAlt?: string;
 };
 
-export const profileImage = "/assets/images/jim-van-duijsen-profile.png";
+export const profileImage = "/assets/images/jim-van-duijsen-profile-2.jpg";
 
 export const bio = {
 	beforeWork:

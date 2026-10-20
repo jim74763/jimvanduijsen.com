@@ -1,10 +1,6 @@
 import { footerLinks, footerMetaItems } from "../content/footer.js";
 
-type FooterProps = {
-	themeToggle?: boolean;
-};
-
-export const Footer = ({ themeToggle = false }: FooterProps) => {
+export const Footer = () => {
 	return (
 		<footer className="flex flex-col items-center gap-4 border-t border-current/10 px-6 py-10 text-center sm:flex-row sm:flex-wrap sm:justify-between sm:gap-y-2.5 sm:p-16 sm:text-left">
 			<a
@@ -34,17 +30,14 @@ export const Footer = ({ themeToggle = false }: FooterProps) => {
 					</span>
 				))}
 
-				{themeToggle ? (
-					<button
-						type="button"
-						id="theme-toggle"
-						aria-label="Switch between light and dark mode"
-						className="cursor-pointer whitespace-nowrap rounded-full border border-current/20 px-3.5 py-1 text-base font-medium leading-[1.45] tracking-[-0.08px] transition hover:border-current/60"
-					>
-						<span className="dark:hidden">Dark mode</span>
-						<span className="hidden dark:inline">Light mode</span>
-					</button>
-				) : null}
+				<button
+					type="button"
+					id="theme-toggle"
+					aria-label="Switch between light and dark mode"
+					className="cursor-pointer whitespace-nowrap rounded-full border border-current/20 px-3.5 py-1 text-base font-medium leading-[1.45] tracking-[-0.08px] transition-colors hover:border-current/60"
+				>
+					<span id="theme-toggle-label">Dark mode</span>
+				</button>
 			</nav>
 		</footer>
 	);

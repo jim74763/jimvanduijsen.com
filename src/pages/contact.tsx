@@ -6,7 +6,7 @@ import { contactSchema } from "../utils/schema.org/contact.js";
 
 const Contact = () => {
 	return (
-		<main className="relative flex min-h-screen flex-col overflow-x-hidden bg-white text-black">
+		<main className="relative flex min-h-screen flex-col overflow-x-hidden bg-background text-foreground">
 			<JsonLd schema={contactSchema} />
 			<Header />
 			<section className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-10 px-6 pb-16 pt-[104px] sm:px-12 lg:flex-row lg:items-start lg:gap-16">
@@ -14,7 +14,7 @@ const Contact = () => {
 					<h1 className="mb-3 text-3xl font-semibold tracking-tight">
 						Get in touch
 					</h1>
-					<p className="text-base font-medium leading-relaxed text-black/65">
+					<p className="text-base font-medium leading-relaxed text-muted-foreground">
 						Interested in working together? Fill out the form and I'll get back
 						to you.
 					</p>
