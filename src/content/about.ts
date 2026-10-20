@@ -69,6 +69,7 @@ export const projects: AboutItem[] = [
 		title: "Self-hosted mail server",
 		body: [
 			"I run my own mail server for email marketing. In Mailreach inbox placement tests with real Microsoft and Google inboxes, Outlook reached up to 100% inbox placement, and Google deliverability is also strong when I send through an SMTP relay. I run it in two setups: inboxes on the server's own IP and inboxes behind SMTP relays.",
+			"It runs on a Hetzner VPS, hosted with Docker, and I use Grafana for logs. I deliberately did not use Kubernetes or Docker Swarm, because this is too small a project to justify the extra complexity. Plain Docker is simpler to run and maintain.",
 		],
 	},
 	{
