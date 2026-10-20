@@ -35,3 +35,18 @@
     text-underline-offset: 0.18em;
   }
 }
+
+@page {
+  margin: 14mm;
+}
+
+@media print {
+  html {
+    font-size: 90%;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

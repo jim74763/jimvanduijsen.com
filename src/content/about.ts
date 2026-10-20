@@ -1,6 +1,7 @@
 export type AboutItem = {
 	title: string;
 	subtitle?: string;
+	period?: string;
 	link?: string;
 	linkLabel?: string;
 	extraLink?: { href: string; label: string };
@@ -19,10 +20,11 @@ export const experience: AboutItem[] = [
 	{
 		title: "Crypto Insiders",
 		subtitle: "Frontend developer",
+		period: "2025 to present",
 		link: "https://crypto-insiders.nl",
 		linkLabel: "Visit Crypto Insiders",
 		body: [
-			"The largest crypto and blockchain news outlet in the Benelux. I worked on the migration from WordPress to Next.js and rebuilt many of the original pages pixel-perfect in React, TypeScript and Tailwind. I also implemented Google Publisher Tag to serve ads.",
+			"The largest crypto and blockchain news outlet in the Benelux. I worked on the migration from WordPress to Next.js, migrating 50+ pages and rebuilding many of the original pages pixel-perfect in React, TypeScript and Tailwind. I also implemented Google Publisher Tag to serve ads.",
 		],
 	},
 	{
@@ -44,6 +46,21 @@ export const experience: AboutItem[] = [
 		body: [
 			"Before Crypto Insiders I ran a small web agency building Next.js and React sites for clients. The portfolio and testimonials are still online.",
 		],
+	},
+];
+
+export const education: AboutItem[] = [
+	{
+		title: "The Hague University of Applied Sciences (THUAS)",
+		subtitle: "International Business",
+		period: "2026 to 2030",
+		body: [],
+	},
+	{
+		title: "Ashram College",
+		subtitle: "HAVO",
+		period: "2020 to 2026",
+		body: [],
 	},
 ];
 

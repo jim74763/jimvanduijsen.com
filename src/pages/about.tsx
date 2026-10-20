@@ -1,8 +1,10 @@
 import { Footer } from "../components/footer.js";
 import { Header } from "../components/header.js";
 import { JsonLd } from "../components/json-ld.js";
+import { ViewSwitcher } from "../components/view-switcher.js";
 import {
 	type AboutItem,
+	education,
 	experience,
 	projects,
 	skills,
@@ -16,24 +18,35 @@ function ItemList({ items }: { items: AboutItem[] }) {
 		<ul className="w-full">
 			{items.map((item) => (
 				<li key={item.title} className="border-b border-black/15 py-5">
-					<h3 className="text-xl font-semibold tracking-tight">{item.title}</h3>
+					<div className="flex items-baseline justify-between gap-4">
+						<h3 className="text-xl font-semibold tracking-tight">
+							{item.title}
+						</h3>
+						{item.period ? (
+							<span className="shrink-0 text-base font-medium text-black/60">
+								{item.period}
+							</span>
+						) : null}
+					</div>
 					{item.subtitle ? (
 						<p className="text-base font-medium text-black/60">
 							{item.subtitle}
 						</p>
 					) : null}
-					<div className="mt-2 max-w-xl text-base font-medium leading-relaxed text-black/65">
-						{item.body.map((paragraph) => (
-							<p key={paragraph}>{paragraph}</p>
-						))}
-						{item.bullets ? (
-							<ul className="mt-3 list-disc space-y-2 pl-5">
-								{item.bullets.map((bullet) => (
-									<li key={bullet}>{bullet}</li>
-								))}
-							</ul>
-						) : null}
-					</div>
+					{item.body.length || item.bullets ? (
+						<div className="mt-2 max-w-xl text-base font-medium leading-relaxed text-black/65">
+							{item.body.map((paragraph) => (
+								<p key={paragraph}>{paragraph}</p>
+							))}
+							{item.bullets ? (
+								<ul className="mt-3 list-disc space-y-2 pl-5">
+									{item.bullets.map((bullet) => (
+										<li key={bullet}>{bullet}</li>
+									))}
+								</ul>
+							) : null}
+						</div>
+					) : null}
 					{item.link || item.extraLink ? (
 						<div className="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-base font-semibold tracking-tight">
 							{item.link ? (
@@ -66,6 +79,10 @@ export default function PortfolioPage() {
 			<JsonLd schema={aboutSchema(projects)} />
 			<Header />
 			<section className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-6 pb-28 pt-[104px] sm:px-12 sm:pb-32">
+				<div className="mb-8">
+					<ViewSwitcher active="about" />
+				</div>
+
 				<header className="mb-14 max-w-xl">
 					<div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full border border-black/10 relative overflow-hidden">
 						<img
@@ -96,6 +113,11 @@ export default function PortfolioPage() {
 					Experience
 				</h2>
 				<ItemList items={experience} />
+
+				<h2 className="mb-2 mt-14 text-3xl font-semibold tracking-tight">
+					Education
+				</h2>
+				<ItemList items={education} />
 
 				<h2 className="mb-2 mt-14 text-3xl font-semibold tracking-tight">
 					Featured projects

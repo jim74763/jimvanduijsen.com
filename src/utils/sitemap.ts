@@ -3,7 +3,8 @@ const BASE_URL = "https://www.jimvanduijsen.com";
 // Bump a page's lastmod when its content actually changes.
 const pages = [
 	{ path: "/", lastmod: "2026-09-03" },
-	{ path: "/about", lastmod: "2026-08-10" },
+	{ path: "/about", lastmod: "2026-10-20" },
+	{ path: "/cv", lastmod: "2026-10-20" },
 	{ path: "/contact", lastmod: "2026-08-10" },
 	{ path: "/software", lastmod: "2026-09-03" },
 ];
