@@ -26,6 +26,8 @@ export const experience: AboutItem[] = [
 	},
 	{
 		title: "DC Lab website, THUAS",
+		link: "https://dc-lab.org",
+		linkLabel: "Visit DC Lab",
 		body: [
 			"A site for the DC Lab research group where they publish events and papers. Built with Next.js, React, Tailwind and Payload CMS, so the team can update content without a developer.",
 		],
@@ -43,8 +45,10 @@ export const experience: AboutItem[] = [
 export const projects: AboutItem[] = [
 	{
 		title: "Instantly add-on",
+		link: "https://github.com/jim74763/instantly-addon",
+		linkLabel: "View the repo",
 		body: [
-			"Instantly.ai locked a feature I needed behind a plan that cost 50 euros more per month. I built my own add-on on top of their API, with AI help, and published the repo.",
+			"Instantly.ai locked a feature I needed behind a plan that cost 50 euros more per month. I built my own add-on on top of their API, with AI help, and published the repo. It is a self-hosted companion to Instantly for handling cold-email replies, managing leads, and testing delivery from one dashboard.",
 		],
 	},
 	{
