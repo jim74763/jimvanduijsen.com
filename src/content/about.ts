@@ -57,6 +57,14 @@ export const projects: AboutItem[] = [
 		],
 	},
 	{
+		title: "Template site",
+		link: "https://github.com/jim74763/template-site",
+		linkLabel: "View the repo",
+		body: [
+			"Industry-specific website templates for quickly building demo sites for sales leads. Each lead gets a personalized page, where AI-written copy fills the best-matching template. Built with Next.js, React, TypeScript, Tailwind and Postgres.",
+		],
+	},
+	{
 		title: "Self-hosted mail server",
 		body: [
 			"I run my own mail server for email marketing. In Mailreach inbox placement tests with real Microsoft and Google inboxes, Outlook reached up to 100% inbox placement, and Google deliverability is also strong when I send through an SMTP relay. I run it in two setups: inboxes on the server's own IP and inboxes behind SMTP relays.",
