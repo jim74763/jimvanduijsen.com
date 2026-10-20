@@ -13,7 +13,7 @@ import { aboutSchema } from "../utils/schema.org/about.js";
 
 function ItemList({ items }: { items: AboutItem[] }) {
 	return (
-		<ul className="mb-14 w-full">
+		<ul className="w-full">
 			{items.map((item) => (
 				<li key={item.title} className="border-b border-black/15 py-5">
 					<h3 className="text-xl font-semibold tracking-tight">{item.title}</h3>
@@ -97,12 +97,14 @@ export default function PortfolioPage() {
 				</h2>
 				<ItemList items={experience} />
 
-				<h2 className="mb-2 text-3xl font-semibold tracking-tight">
+				<h2 className="mb-2 mt-14 text-3xl font-semibold tracking-tight">
 					Featured projects
 				</h2>
 				<ItemList items={projects} />
 
-				<h2 className="mb-2 text-3xl font-semibold tracking-tight">Skills</h2>
+				<h2 className="mb-2 mt-14 text-3xl font-semibold tracking-tight">
+					Skills
+				</h2>
 				<ItemList items={skills} />
 			</section>
 			<Footer />
