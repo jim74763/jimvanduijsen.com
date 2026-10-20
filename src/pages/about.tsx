@@ -4,7 +4,6 @@ import { JsonLd } from "../components/json-ld.js";
 import {
 	type AboutItem,
 	experience,
-	otherLinks,
 	projects,
 	skills,
 	story,
@@ -35,13 +34,25 @@ function ItemList({ items }: { items: AboutItem[] }) {
 							</ul>
 						) : null}
 					</div>
-					{item.link ? (
-						<a
-							href={item.link}
-							className="mt-3 inline-flex text-base font-semibold tracking-tight text-black transition hover:opacity-60"
-						>
-							{item.linkLabel ?? "Visit"}
-						</a>
+					{item.link || item.extraLink ? (
+						<div className="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-base font-semibold tracking-tight">
+							{item.link ? (
+								<a
+									href={item.link}
+									className="text-black transition hover:opacity-60"
+								>
+									{item.linkLabel ?? "Visit"}
+								</a>
+							) : null}
+							{item.extraLink ? (
+								<a
+									href={item.extraLink.href}
+									className="text-black transition hover:opacity-60"
+								>
+									{item.extraLink.label}
+								</a>
+							) : null}
+						</div>
 					) : null}
 				</li>
 			))}
@@ -93,20 +104,6 @@ export default function PortfolioPage() {
 
 				<h2 className="mb-2 text-3xl font-semibold tracking-tight">Skills</h2>
 				<ItemList items={skills} />
-
-				<h2 className="mb-4 text-3xl font-semibold tracking-tight">Other</h2>
-				<ul className="space-y-2">
-					{otherLinks.map((link) => (
-						<li key={link.href}>
-							<a
-								href={link.href}
-								className="text-base font-semibold tracking-tight text-black transition hover:opacity-60"
-							>
-								{link.label}
-							</a>
-						</li>
-					))}
-				</ul>
 			</section>
 			<Footer />
 		</main>

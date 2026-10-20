@@ -3,6 +3,7 @@ export type AboutItem = {
 	subtitle?: string;
 	link?: string;
 	linkLabel?: string;
+	extraLink?: { href: string; label: string };
 	body: string[];
 	bullets?: string[];
 };
@@ -36,6 +37,10 @@ export const experience: AboutItem[] = [
 		title: "Web agency (jimvd.xyz)",
 		link: "https://jimvd.xyz",
 		linkLabel: "Visit Jimvd.xyz",
+		extraLink: {
+			href: "https://jimvd.xyz/testimonials",
+			label: "Portfolio and testimonials",
+		},
 		body: [
 			"Before Crypto Insiders I ran a small web agency building Next.js and React sites for clients. The portfolio and testimonials are still online.",
 		],
@@ -97,13 +102,4 @@ export const skills: AboutItem[] = [
 			"I hold several Nebius AI certificates on using and implementing AI well.",
 		],
 	},
-];
-
-export const otherLinks: { label: string; href: string }[] = [
-	{
-		label: "Portfolio and testimonials",
-		href: "https://jimvd.xyz/testimonials",
-	},
-	{ label: "GitHub", href: "https://github.com/jim74763" },
-	{ label: "LinkedIn", href: "https://www.linkedin.com/in/jim-van-duijsen/" },
 ];
