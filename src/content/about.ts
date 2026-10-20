@@ -62,7 +62,7 @@ export const projects: AboutItem[] = [
 		linkLabel: "View the repo",
 		extraLink: { href: "https://template.jimvd.xyz", label: "Live demo" },
 		body: [
-			"Industry-specific website templates for quickly building demo sites for sales leads. Each lead gets a personalized page, where AI-written copy fills the best-matching template. Built with Next.js, React, TypeScript, Tailwind and Postgres.",
+			"AI-generated website demos that I use for my email marketing. They are generated with AI from a handful of prebuilt website templates, and you can also view the templates as they are on the live demo. Built with Next.js, React, TypeScript, Tailwind, shadcn/ui and OpenRouter.",
 		],
 	},
 	{
@@ -97,7 +97,7 @@ export const skills: AboutItem[] = [
 	{
 		title: "AI coding agents",
 		body: [
-			"I learned to program first and added AI afterwards, so I can review and steer what it writes. I mainly use Claude Code, Codex and Pi, an open-source, minimalist coding agent with only read, write and bash tools.",
+			"I learned to program first and added AI afterwards, so I can review and steer what it writes. I mainly use Claude Code, Codex and Pi (an open-source, minimalist coding agent with only read, write and bash tools).",
 		],
 	},
 	{
@@ -108,8 +108,12 @@ export const skills: AboutItem[] = [
 	},
 	{
 		title: "AI certificates",
+		extraLink: {
+			href: "https://www.linkedin.com/in/jim-van-duijsen/",
+			label: "LinkedIn profile",
+		},
 		body: [
-			"I hold several Nebius AI certificates on using and implementing AI well.",
+			"I hold several Nebius AI certificates on using and implementing AI well. You can see the certificates on my LinkedIn profile.",
 		],
 	},
 ];
