@@ -83,7 +83,7 @@ export const projects: AboutItem[] = [
 	{
 		title: "IoT and home automation",
 		body: [
-			"I've been building with IoT and home automation since I was 12. I run Home Assistant on a Pi with Zigbee networks, mainly using Philips Hue lighting. Hue bulbs are expensive, so I pair cheaper IKEA Zigbee bulbs with the Hue setup instead. I also program custom Arduino and ESP devices with ESPHome, Tasmota or the Arduino IDE, now paired with Claude Code, and I have some experience with MQTT.",
+			"I've been building with IoT and home automation since I was 12. I run Home Assistant on a Pi with Zigbee networks, mainly using Philips Hue lighting. Hue bulbs are expensive, so I pair cheaper IKEA Zigbee bulbs with the Hue setup instead. I also program custom Arduino and ESP devices with ESPHome, Tasmota or the Arduino IDE, now paired with Claude Code, and I have some experience with embedded systems.",
 		],
 	},
 ];
