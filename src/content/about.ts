@@ -60,6 +60,7 @@ export const projects: AboutItem[] = [
 		title: "Template site",
 		link: "https://github.com/jim74763/template-site",
 		linkLabel: "View the repo",
+		extraLink: { href: "https://template.jimvd.xyz", label: "Live demo" },
 		body: [
 			"Industry-specific website templates for quickly building demo sites for sales leads. Each lead gets a personalized page, where AI-written copy fills the best-matching template. Built with Next.js, React, TypeScript, Tailwind and Postgres.",
 		],
