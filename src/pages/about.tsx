@@ -101,8 +101,7 @@ export default function PortfolioPage() {
 				className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-6 pb-28 pt-[104px] sm:px-12 sm:pb-32 print:px-0 print:pb-0 print:pt-0!"
 				x-bind:class="$store.view.mode === 'cv' && 'pt-8! max-w-3xl!'"
 			>
-				<div className="mb-8 flex items-center justify-between gap-4 print:hidden">
-					<ViewSwitcher />
+				<div className="mb-8 flex items-center justify-end gap-3 print:hidden">
 					<button
 						type="button"
 						x-show="$store.view.mode === 'cv'"
@@ -112,6 +111,7 @@ export default function PortfolioPage() {
 					>
 						Download PDF
 					</button>
+					<ViewSwitcher />
 				</div>
 
 				<div x-show="$store.view.mode === 'cv'" x-cloak>
