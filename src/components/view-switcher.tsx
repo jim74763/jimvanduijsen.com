@@ -6,7 +6,7 @@ const tabs = [
 export const ViewSwitcher = () => (
 	<nav
 		aria-label="Page view"
-		className="inline-flex rounded-full border border-black/10 p-1 text-sm font-semibold tracking-tight"
+		className="ml-auto inline-flex rounded-full border border-black/10 p-1 text-sm font-semibold tracking-tight"
 	>
 		{tabs.map((tab) => (
 			<button
