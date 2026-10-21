@@ -70,6 +70,10 @@ export const renderPage = ({
 				<link rel="stylesheet" href="/assets/app.css" />
 				<script
 					defer
+					src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js"
+				/>
+				<script
+					defer
 					src="/u/script.js"
 					data-website-id="eda141ce-7cde-4d99-b20b-6558e5e5b43c"
 					data-host-url="/u"

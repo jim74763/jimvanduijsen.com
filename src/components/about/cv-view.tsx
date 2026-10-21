@@ -1,4 +1,4 @@
-import { cv } from "../content/cv.js";
+import { cv } from "../../content/cv.js";
 
 const SectionTitle = ({ children }: { children: string }) => (
 	<h2 className="mb-3 border-b border-black/15 pb-1 text-xs font-semibold uppercase tracking-[0.14em] text-black/60">
