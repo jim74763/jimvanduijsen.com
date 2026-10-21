@@ -33,11 +33,9 @@ function ItemList({ items }: { items: AboutItem[] }) {
 							{item.subtitle}
 						</p>
 					) : null}
-					{item.body.length || item.bullets ? (
+					{item.body || item.bullets ? (
 						<div className="mt-2 max-w-xl text-base font-medium leading-relaxed text-black/65">
-							{item.body.map((paragraph) => (
-								<p key={paragraph}>{paragraph}</p>
-							))}
+							{item.body ? <p>{item.body}</p> : null}
 							{item.bullets ? (
 								<ul className="mt-3 list-disc space-y-2 pl-5">
 									{item.bullets.map((bullet) => (
