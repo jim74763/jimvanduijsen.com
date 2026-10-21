@@ -4,7 +4,6 @@ const BASE_URL = "https://www.jimvanduijsen.com";
 const pages = [
 	{ path: "/", lastmod: "2026-09-03" },
 	{ path: "/about", lastmod: "2026-10-20" },
-	{ path: "/cv", lastmod: "2026-10-20" },
 	{ path: "/contact", lastmod: "2026-08-10" },
 	{ path: "/software", lastmod: "2026-09-03" },
 ];

@@ -2,6 +2,10 @@
 
 @source "./**/*.{ts,tsx}";
 
+[x-cloak] {
+  display: none !important;
+}
+
 @layer components {
   .project-disclosure > summary {
     list-style: none;
