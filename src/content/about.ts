@@ -71,6 +71,12 @@ export const projects: AboutItem[] = [
 		body: "AI-generated website demos that I use for my email marketing. They are generated with AI from a handful of prebuilt website templates, and you can also view the templates as they are on the live demo. Built with Next.js, React, TypeScript, Tailwind, shadcn/ui and OpenRouter.",
 	},
 	{
+		title: "This website",
+		link: "https://github.com/jim74763/jimvanduijsen.com",
+		linkLabel: "View the repo",
+		body: "The source code of this website is public on my GitHub. It runs on Cloudflare Workers and is built with Hono, Tailwind and Alpine.js.",
+	},
+	{
 		title: "Self-hosted mail server",
 		body: "I run my own mail server for email marketing. In Mailreach inbox placement tests with real Microsoft and Google inboxes, Outlook reached up to 100% inbox placement, and Google deliverability is also strong when I send through an SMTP relay. I run it in two setups: inboxes on the server's own IP and inboxes behind SMTP relays.",
 		bullets: [

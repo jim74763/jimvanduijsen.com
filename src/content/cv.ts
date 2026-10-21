@@ -89,6 +89,11 @@ export const cv = {
 			href: "https://github.com/jim74763/template-site",
 		},
 		{
+			title: "This website",
+			text: "Public source code. Runs on Cloudflare Workers, built with Hono, Tailwind and Alpine.js.",
+			href: "https://github.com/jim74763/jimvanduijsen.com",
+		},
+		{
 			title: "Self-hosted mail server",
 			text: "Own mail server for email marketing on a Hetzner VPS with Docker and Grafana. Up to 100% Outlook inbox placement in Mailreach tests.",
 		},
