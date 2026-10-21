@@ -77,7 +77,7 @@ const alpine = (
 		<script
 			dangerouslySetInnerHTML={{
 				__html:
-					'document.addEventListener("alpine:init",()=>Alpine.store("view",{mode:"about"}))',
+					'document.addEventListener("alpine:init",()=>{let m="about";try{m=localStorage.getItem("view")==="cv"?"cv":"about"}catch(e){}Alpine.store("view",{mode:m,init(){Alpine.effect(()=>{try{localStorage.setItem("view",this.mode)}catch(e){}})}})})',
 			}}
 		/>
 		<script
