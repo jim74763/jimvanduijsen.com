@@ -94,7 +94,16 @@ export default function PortfolioPage() {
 			className="relative flex min-h-screen flex-col overflow-x-hidden bg-white text-black"
 		>
 			<JsonLd schema={aboutSchema(projects)} />
-			<div x-show="$store.view.mode === 'about'">
+			<div
+				className="absolute inset-x-0 top-0 z-10"
+				x-show="$store.view.mode === 'about'"
+				x-transition:enter="transition duration-300 ease-out"
+				x-transition:enter-start="-translate-y-24"
+				x-transition:enter-end="translate-y-0"
+				x-transition:leave="transition duration-300 ease-in"
+				x-transition:leave-start="translate-y-0"
+				x-transition:leave-end="-translate-y-24"
+			>
 				<Header />
 			</div>
 			<section
@@ -166,7 +175,15 @@ export default function PortfolioPage() {
 					<ItemList items={skills} />
 				</div>
 			</section>
-			<div x-show="$store.view.mode === 'about'">
+			<div
+				x-show="$store.view.mode === 'about'"
+				x-transition:enter="transition duration-300 ease-out"
+				x-transition:enter-start="translate-y-full"
+				x-transition:enter-end="translate-y-0"
+				x-transition:leave="transition duration-300 ease-in"
+				x-transition:leave-start="translate-y-0"
+				x-transition:leave-end="translate-y-full"
+			>
 				<Footer />
 			</div>
 		</main>

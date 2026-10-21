@@ -19,7 +19,6 @@ export const cv = {
 			href: "https://www.linkedin.com/in/jim-van-duijsen/",
 		},
 		{ label: "GitHub", href: "https://github.com/jim74763" },
-		{ label: "jimvd.xyz", href: "https://jimvd.xyz/testimonials" },
 	],
 	experience: [
 		{
