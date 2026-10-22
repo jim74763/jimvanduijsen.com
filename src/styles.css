@@ -40,11 +40,11 @@
   }
 }
 
-@page {
-  margin: 14mm;
-}
-
 @media print {
+  @page {
+    margin: 14mm;
+  }
+
   html {
     font-size: 90%;
   }
