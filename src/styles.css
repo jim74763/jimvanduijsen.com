@@ -48,9 +48,4 @@
   html {
     font-size: 90%;
   }
-
-  body {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
 }
