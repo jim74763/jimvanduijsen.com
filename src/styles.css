@@ -41,6 +41,13 @@
   --color-surface: var(--surface);
   --color-surface-hover: var(--surface-hover);
   --color-border: var(--border);
+
+  /* Before Alpine starts, the inline script in ViewInit sets data-view and
+   data-view-pending on <html>, so the saved About/CV view renders without a
+   flash. Alpine removes data-view-pending and x-show takes over. */
+html[data-view-pending][data-view="cv"] [data-about-only],
+html[data-view-pending][data-view="about"] [data-cv-only] {
+  display: none;
 }
 
 @layer components {
@@ -82,5 +89,15 @@
 
   .theme-content-icon {
     filter: var(--content-icon-filter);
+  }
+}
+
+@media print {
+  @page {
+    margin: 14mm;
+  }
+
+  html {
+    font-size: 90%;
   }
 }

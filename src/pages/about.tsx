@@ -1,3 +1,8 @@
+import { AboutView } from "../components/about/about-view.js";
+import { CvView } from "../components/about/cv-view.js";
+import { SlideOut } from "../components/about/slide-out.js";
+import { ViewControls } from "../components/about/view-controls.js";
+import { ViewInit } from "../components/about/view-init.js";
 import { Footer } from "../components/footer.js";
 import { Header } from "../components/header.js";
 import { JsonLd } from "../components/json-ld.js";
@@ -7,91 +12,35 @@ import { aboutSchema } from "../utils/schema.org/about.js";
 
 export default function PortfolioPage() {
 	return (
-		<main className="relative flex min-h-screen flex-col overflow-x-hidden bg-background text-foreground">
+		<main
+			x-data
+			className="relative flex min-h-screen flex-col overflow-x-hidden bg-white text-black"
+		>
 			<JsonLd schema={aboutSchema(projects)} />
-			<Header />
-			<section className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-6 pb-28 pt-[104px] sm:px-12 sm:pb-32">
-				<header className="mb-8 max-w-xl">
-					<div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full border border-border relative overflow-hidden">
-						<img
-							src="/assets/images/jim-mirror-avatar.png"
-							alt="jim van duijsen"
-							className="absolute inset-0 object-cover"
-						/>
-					</div>
-
-					<h1 className="mb-3 text-3xl font-semibold tracking-tight">
-						About me
-					</h1>
-
-					<p className="text-base font-medium leading-relaxed text-muted-foreground">
-						I build AI agents and automation workflows. I am currently building
-						Havonyx, a done-for-you AI agency that turns repetitive business
-						tasks into practical AI automation systems. <br />I also work as a
-						freelance developer with notable clients such as Crypto-Insiders.
-					</p>
-				</header>
-
-				<h2 className="mb-4 text-3xl font-semibold tracking-tight">
-					Projects i have worked on
-				</h2>
-
-				<ul className="w-full">
-					{projects.map((project) => (
-						<li key={`${project.title}-${project.year}`}>
-							<details className="project-disclosure border-b border-border">
-								<summary className="flex min-h-16 cursor-pointer items-center justify-between gap-4 py-4 pr-2 text-foreground">
-									<span className="min-w-0 flex-1 truncate text-xl font-semibold tracking-tight">
-										{project.title}
-									</span>
-									<span className="flex shrink-0 items-center gap-4">
-										<span className="text-xl font-medium tracking-tight text-muted-foreground">
-											{project.year}
-										</span>
-										<img
-											src="/assets/icons/chevron-down.svg"
-											width="18"
-											height="18"
-											alt=""
-											aria-hidden="true"
-											className="project-disclosure-icon theme-content-icon shrink-0 transition"
-										/>
-									</span>
-								</summary>
-
-								<div className="pb-5 pr-2">
-									<div
-										className="project-disclosure-content max-w-xl text-base font-medium leading-relaxed text-muted-foreground"
-										dangerouslySetInnerHTML={{
-											__html: project.contentHtml,
-										}}
-									/>
-
-									{project.link ? (
-										<a
-											href={project.link}
-											className="mt-4 inline-flex text-base font-semibold tracking-tight text-foreground transition hover:opacity-60"
-										>
-											{project.linkLabel ?? "Visit project"}
-										</a>
-									) : null}
-								</div>
-							</details>
-						</li>
-					))}
-				</ul>
+			<SlideOut from="top" className="absolute inset-x-0 top-0 z-10">
+				<Header />
+			</SlideOut>
+			<section className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-6 pb-28 pt-[104px] sm:px-12 sm:pb-32 [html[data-view=cv]_&]:max-w-3xl [html[data-view=cv]_&]:pt-8 print:px-0 print:pb-0 print:pt-0!">
+				<ViewControls />
+				<div data-cv-only x-show="$store.view.is('cv')">
+					<CvView />
+				</div>
+				<AboutView />
 			</section>
-			<Footer />
+			<SlideOut from="bottom">
+				<Footer />
+			</SlideOut>
 		</main>
 	);
 }
 
 export const aboutPage = () => {
 	return renderPage({
-		title: "About Jim van Duijsen | AI Agent Developer & Web Developer",
+		title: "About Jim van Duijsen | Frontend Developer",
 		description:
-			"Jim van Duijsen builds custom AI agents and automation workflows. Founder of Havonyx and Jimvd Web Agency. Freelance developer for clients like Crypto Insiders.",
+			"Jim van Duijsen is a frontend developer working in Next.js, React and TypeScript, growing into full stack. Available for part-time work.",
 		canonicalPath: "/about",
+		metadata: <ViewInit />,
 		children: <PortfolioPage />,
 	});
 };
