@@ -41,8 +41,9 @@
   --color-surface: var(--surface);
   --color-surface-hover: var(--surface-hover);
   --color-border: var(--border);
+}
 
-  /* Before Alpine starts, the inline script in ViewInit sets data-view and
+/* Before Alpine starts, the inline script in ViewInit sets data-view and
    data-view-pending on <html>, so the saved About/CV view renders without a
    flash. Alpine removes data-view-pending and x-show takes over. */
 html[data-view-pending][data-view="cv"] [data-about-only],
@@ -95,6 +96,18 @@ html[data-view-pending][data-view="about"] [data-cv-only] {
 @media print {
   @page {
     margin: 14mm;
+  }
+
+  :root,
+  .dark {
+    --background: #ffffff;
+    --foreground: #111111;
+    --secondary-foreground: #444444;
+    --muted-foreground: #595959;
+    --subtle-foreground: #555555;
+    --surface: #f3f3f3;
+    --surface-hover: #e8e8e8;
+    --border: #e4e4e4;
   }
 
   html {

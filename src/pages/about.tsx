@@ -14,7 +14,7 @@ export default function PortfolioPage() {
 	return (
 		<main
 			x-data
-			className="relative flex min-h-screen flex-col overflow-x-hidden bg-white text-black"
+			className="relative flex min-h-screen flex-col overflow-x-hidden bg-background text-foreground"
 		>
 			<JsonLd schema={aboutSchema(projects)} />
 			<SlideOut from="top" className="absolute inset-x-0 top-0 z-10">

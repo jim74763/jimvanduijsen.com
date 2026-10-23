@@ -1,7 +1,7 @@
 import { cv } from "../../content/cv.js";
 
 const SectionTitle = ({ children }: { children: string }) => (
-	<h2 className="mb-3 border-b border-black/15 pb-1 text-xs font-semibold uppercase tracking-[0.14em] text-black/60">
+	<h2 className="mb-3 border-b border-border pb-1 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
 		{children}
 	</h2>
 );
@@ -21,16 +21,18 @@ const Entry = ({
 		<div className="flex items-baseline justify-between gap-4">
 			<h3 className="text-base font-semibold tracking-tight">
 				{title}
-				<span className="font-medium text-black/60">, {organisation}</span>
+				<span className="font-medium text-muted-foreground">
+					, {organisation}
+				</span>
 			</h3>
 			{period ? (
-				<span className="shrink-0 text-sm font-medium text-black/60">
+				<span className="shrink-0 text-sm font-medium text-muted-foreground">
 					{period}
 				</span>
 			) : null}
 		</div>
 		{points ? (
-			<ul className="mt-1 list-disc space-y-1 pl-5 text-sm font-medium leading-relaxed text-black/70">
+			<ul className="mt-1 list-disc space-y-1 pl-5 text-sm font-medium leading-relaxed text-muted-foreground">
 				{points.map((point) => (
 					<li key={point}>{point}</li>
 				))}
@@ -43,8 +45,10 @@ export const CvView = () => (
 	<div>
 		<header className="mb-6 print:mb-4">
 			<h1 className="text-4xl font-semibold tracking-tight">{cv.name}</h1>
-			<p className="mt-1 text-lg font-medium text-black/65">{cv.headline}</p>
-			<p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm font-medium text-black/65">
+			<p className="mt-1 text-lg font-medium text-muted-foreground">
+				{cv.headline}
+			</p>
+			<p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm font-medium text-muted-foreground">
 				<span>{cv.location}</span>
 				{cv.links.map((link) => (
 					<a key={link.href} href={link.href} className="underline">
@@ -57,7 +61,7 @@ export const CvView = () => (
 		<div className="space-y-6 print:space-y-4">
 			<section>
 				<SectionTitle>Profile</SectionTitle>
-				<p className="text-sm font-medium leading-relaxed text-black/70">
+				<p className="text-sm font-medium leading-relaxed text-muted-foreground">
 					{cv.summary} {cv.availability}.
 				</p>
 			</section>
@@ -86,7 +90,7 @@ export const CvView = () => (
 					{cv.skills.map((skill) => (
 						<div key={skill.label} className="flex gap-3">
 							<dt className="w-36 shrink-0 font-semibold">{skill.label}</dt>
-							<dd className="text-black/70">{skill.value}</dd>
+							<dd className="text-muted-foreground">{skill.value}</dd>
 						</div>
 					))}
 				</dl>
@@ -104,7 +108,7 @@ export const CvView = () => (
 							) : (
 								<span className="font-semibold">{project.title}</span>
 							)}
-							<span className="text-black/70">: {project.text}</span>
+							<span className="text-muted-foreground">: {project.text}</span>
 						</li>
 					))}
 				</ul>
@@ -112,11 +116,11 @@ export const CvView = () => (
 
 			<section>
 				<SectionTitle>Certificates and languages</SectionTitle>
-				<p className="text-sm font-medium leading-relaxed text-black/70">
+				<p className="text-sm font-medium leading-relaxed text-muted-foreground">
 					{cv.certificates}
 				</p>
-				<p className="mt-1 text-sm font-medium leading-relaxed text-black/70">
-					<span className="font-semibold text-black">Languages:</span>{" "}
+				<p className="mt-1 text-sm font-medium leading-relaxed text-muted-foreground">
+					<span className="font-semibold text-foreground">Languages:</span>{" "}
 					{cv.languages}
 				</p>
 			</section>
