@@ -52,9 +52,4 @@ html[data-view-pending][data-view="about"] [data-cv-only] {
   html {
     font-size: 90%;
   }
-
-  body {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
 }
