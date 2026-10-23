@@ -22,7 +22,7 @@ const SectionTitle = ({
 );
 
 export const AboutView = () => (
-	<div x-show="$store.view.mode === 'about'">
+	<div data-about-only x-show="$store.view.is('about')">
 		<header className="mb-14 max-w-xl">
 			<div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full border border-black/10 relative overflow-hidden">
 				<img

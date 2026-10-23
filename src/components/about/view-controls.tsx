@@ -7,8 +7,8 @@ export const ViewControls = () => (
 	<div className="mb-8 flex items-center justify-between gap-3 sm:justify-end print:hidden">
 		<button
 			type="button"
-			x-show="$store.view.mode === 'cv'"
-			x-cloak
+			data-cv-only
+			x-show="$store.view.is('cv')"
 			x-on:click="window.print()"
 			className="rounded-full border border-black/10 px-5 py-2 text-sm font-semibold tracking-tight transition hover:bg-black hover:text-white"
 		>
@@ -22,8 +22,9 @@ export const ViewControls = () => (
 				<button
 					key={tab.mode}
 					type="button"
-					x-on:click={`$store.view.mode = '${tab.mode}'`}
-					x-bind:class={`$store.view.mode === '${tab.mode}' && 'bg-black! text-white!'`}
+					x-on:click={`$store.view.set('${tab.mode}')`}
+					x-bind:aria-pressed={`$store.view.is('${tab.mode}')`}
+					x-bind:class={`$store.view.is('${tab.mode}') && 'bg-black! text-white!'`}
 					className="rounded-full px-5 py-1.5 text-black/60 transition hover:text-black"
 				>
 					{tab.label}

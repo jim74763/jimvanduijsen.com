@@ -2,8 +2,12 @@
 
 @source "./**/*.{ts,tsx}";
 
-[x-cloak] {
-  display: none !important;
+/* Before Alpine starts, the inline script in ViewInit sets data-view and
+   data-view-pending on <html>, so the saved About/CV view renders without a
+   flash. Alpine removes data-view-pending and x-show takes over. */
+html[data-view-pending][data-view="cv"] [data-about-only],
+html[data-view-pending][data-view="about"] [data-cv-only] {
+  display: none;
 }
 
 @layer components {
