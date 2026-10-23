@@ -22,9 +22,7 @@ export default function PortfolioPage() {
 			</SlideOut>
 			<section className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-6 pb-28 pt-[104px] sm:px-12 sm:pb-32 [html[data-view=cv]_&]:max-w-3xl [html[data-view=cv]_&]:pt-8 print:px-0 print:pb-0 print:pt-0!">
 				<ViewControls />
-				<div data-cv-only x-show="$store.view.is('cv')">
-					<CvView />
-				</div>
+				<CvView />
 				<AboutView />
 			</section>
 			<SlideOut from="bottom">
