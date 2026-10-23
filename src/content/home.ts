@@ -36,7 +36,7 @@ export const bio = {
 		description:
 			"Frontend developer at Crypto Insiders, the largest crypto and blockchain news outlet in the Benelux. I worked on the migration from WordPress to Next.js, rebuilding many of the original pages pixel-perfect in React, Typescript and Tailwind.",
 	} satisfies BioHighlight,
-	betweenHighlights: ", doing a Bachelor ",
+	betweenHighlights: " and doing a Bachelor ",
 	study: {
 		id: "thuas",
 		label: "@ THUAS",
