@@ -40,7 +40,7 @@ const Entry = ({
 );
 
 export const CvView = () => (
-	<div>
+	<div data-cv-only x-show="$store.view.is('cv')">
 		<header className="mb-6 print:mb-4">
 			<h1 className="text-4xl font-semibold tracking-tight">{cv.name}</h1>
 			<p className="mt-1 text-lg font-medium text-black/65">{cv.headline}</p>
