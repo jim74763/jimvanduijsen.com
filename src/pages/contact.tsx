@@ -14,10 +14,27 @@ const Contact = () => {
 					<h1 className="mb-3 text-3xl font-semibold tracking-tight">
 						Get in touch
 					</h1>
-					<p className="text-base font-medium leading-relaxed text-black/65">
-						Interested in working together? Fill out the form and I'll get back
-						to you.
-					</p>
+					<div className="space-y-4 text-base font-medium leading-relaxed text-black/65">
+						<p>
+							I’m a frontend developer (Next.js, React, TypeScript) with
+							hands-on backend and infrastructure experience, and I’m available
+							for part-time work. I’m looking to take on more full-stack
+							responsibility.
+						</p>
+						<p>
+							Tell me about the role or project, and I’ll reply within a couple
+							of days.
+						</p>
+						<p>
+							Email:{" "}
+							<a
+								href="mailto:hello@jimvanduijsen.nl"
+								className="font-semibold text-black underline underline-offset-[0.18em]"
+							>
+								hello@jimvanduijsen.nl
+							</a>
+						</p>
+					</div>
 				</header>
 				<form
 					id="contact-form"
