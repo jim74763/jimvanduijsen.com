@@ -29,6 +29,15 @@ export const Footer = () => {
 						{item.label}
 					</span>
 				))}
+
+				<button
+					type="button"
+					id="theme-toggle"
+					aria-label="Switch between light and dark mode"
+					className="cursor-pointer whitespace-nowrap rounded-full border border-current/20 px-3.5 py-1 text-base font-medium leading-[1.45] tracking-[-0.08px] transition-colors hover:border-current/60"
+				>
+					<span id="theme-toggle-label">Dark mode</span>
+				</button>
 			</nav>
 		</footer>
 	);

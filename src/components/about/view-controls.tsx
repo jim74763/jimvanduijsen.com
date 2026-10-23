@@ -10,13 +10,13 @@ export const ViewControls = () => (
 			data-cv-only
 			x-show="$store.view.is('cv')"
 			x-on:click="window.print()"
-			className="rounded-full border border-black/10 px-5 py-2 text-sm font-semibold tracking-tight transition hover:bg-black hover:text-white"
+			className="rounded-full border border-border px-5 py-2 text-sm font-semibold tracking-tight transition hover:bg-foreground hover:text-background"
 		>
 			Download PDF
 		</button>
 		<nav
 			aria-label="Page view"
-			className="ml-auto inline-flex rounded-full border border-black/10 p-1 text-sm font-semibold tracking-tight"
+			className="ml-auto inline-flex rounded-full border border-border p-1 text-sm font-semibold tracking-tight"
 		>
 			{tabs.map((tab) => (
 				<button
@@ -24,8 +24,8 @@ export const ViewControls = () => (
 					type="button"
 					x-on:click={`$store.view.set('${tab.mode}')`}
 					x-bind:aria-pressed={`$store.view.is('${tab.mode}')`}
-					x-bind:class={`$store.view.is('${tab.mode}') && 'bg-black! text-white!'`}
-					className="rounded-full px-5 py-1.5 text-black/60 transition hover:text-black"
+					x-bind:class={`$store.view.is('${tab.mode}') && 'bg-foreground! text-background!'`}
+					className="rounded-full px-5 py-1.5 text-muted-foreground transition hover:text-foreground"
 				>
 					{tab.label}
 				</button>
