@@ -20,7 +20,6 @@ document.addEventListener("alpine:init", () => {
 	});
 });
 
-// Alpine now controls visibility with x-show, so drop the pre-Alpine CSS rules.
 document.addEventListener("alpine:initialized", () => {
 	delete document.documentElement.dataset.viewPending;
 });

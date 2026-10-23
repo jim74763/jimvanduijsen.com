@@ -19,6 +19,11 @@ export const cv = {
 			href: "https://www.linkedin.com/in/jim-van-duijsen/",
 		},
 		{ label: "GitHub", href: "https://github.com/jim74763" },
+		{ label: "Email", href: "mailto:hello@jimvanduijsen.nl" },
+		{
+			label: "Contact",
+			href: "https://www.jimvanduijsen.com/contact",
+		},
 	],
 	experience: [
 		{
