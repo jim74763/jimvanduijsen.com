@@ -1,17 +1,20 @@
 import type { Child } from "hono/jsx";
 
-const hidden = {
+const offscreen = {
 	top: "-translate-y-80",
 	bottom: "translate-y-full",
 };
 
+const slide = "transition duration-300 motion-reduce:transition-none";
+
 // Shown in About mode, slides away in CV mode.
+// data-about-only lets CSS hide it before Alpine starts (see styles.css).
 export const SlideOut = ({
 	from,
 	className,
 	children,
 }: {
-	from: keyof typeof hidden;
+	from: keyof typeof offscreen;
 	className?: string;
 	children: Child;
 }) => (
@@ -19,12 +22,10 @@ export const SlideOut = ({
 		className={className}
 		data-about-only
 		x-show="$store.view.is('about')"
-		x-transition:enter="transition duration-300 ease-out motion-reduce:transition-none"
-		x-transition:enter-start={hidden[from]}
-		x-transition:enter-end="translate-y-0"
-		x-transition:leave="transition duration-300 ease-in motion-reduce:transition-none"
-		x-transition:leave-start="translate-y-0"
-		x-transition:leave-end={hidden[from]}
+		x-transition:enter={slide}
+		x-transition:enter-start={offscreen[from]}
+		x-transition:leave={slide}
+		x-transition:leave-end={offscreen[from]}
 	>
 		{children}
 	</div>
