@@ -110,7 +110,7 @@ export const skills: AboutItem[] = [
 	},
 	{
 		title: "Learning fast",
-		body: "When I had to implement Google Publisher Tag, Google's ad library, I got it running on the site quickly by combining the docs with AI. New tools rarely slow me down.",
+		body: "When I had to implement Google Publisher Tag, Google's ad library, I got it running on the site quickly by combining the docs with AI. The same happened with Alpine.js for this website. I didn't know it well and don't use it often, but with a coding agent to help I learned it quickly and adapted fast. New tools rarely slow me down.",
 	},
 	{
 		title: "AI certificates",
