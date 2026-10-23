@@ -68,6 +68,13 @@ export const renderPage = ({
 				{bgDark ? <meta name="theme-color" content="#666666" /> : null}
 				{metadata}
 				<link rel="stylesheet" href="/assets/app.css" />
+				<script defer src="/assets/alpine-stores.js" />
+				<script
+					defer
+					src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js"
+					integrity="sha384-9Ax3MmS9AClxJyd5/zafcXXjxmwFhZCdsT6HJoJjarvCaAkJlk5QDzjLJm+Wdx5F"
+					crossorigin="anonymous"
+				/>
 				<script
 					defer
 					src="/u/script.js"
