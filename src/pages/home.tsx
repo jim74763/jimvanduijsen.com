@@ -1,3 +1,4 @@
+import { cn } from "cn";
 import { Footer } from "../components/footer.js";
 import { JsonLd } from "../components/json-ld.js";
 import {
@@ -78,9 +79,10 @@ export default function JimLandingPage() {
 											src={social.icon}
 											alt=""
 											loading="lazy"
-											className={`absolute inset-0 block h-full w-full object-contain${
-												social.label === "GitHub" ? " theme-brand-icon" : ""
-											}`}
+											className={cn(
+												"absolute inset-0 block h-full w-full object-contain",
+												social.label === "GitHub" && "theme-brand-icon",
+											)}
 										/>
 									</span>
 

@@ -1,3 +1,4 @@
+import { cn } from "cn";
 import {
 	education,
 	experience,
@@ -15,7 +16,10 @@ const SectionTitle = ({
 	first?: boolean;
 }) => (
 	<h2
-		className={`mb-2 text-3xl font-semibold tracking-tight ${first ? "" : "mt-14"}`}
+		className={cn(
+			"mb-2 text-3xl font-semibold tracking-tight",
+			!first && "mt-14",
+		)}
 	>
 		{children}
 	</h2>
