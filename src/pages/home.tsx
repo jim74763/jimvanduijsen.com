@@ -6,7 +6,6 @@ import {
 	bio,
 	links,
 	profileImage,
-	projects,
 	socials,
 } from "../content/home.js";
 import { renderPage } from "../utils/document.js";
@@ -111,49 +110,6 @@ export default function JimLandingPage() {
 						))}
 					</nav>
 				</div>
-
-				{projects.length > 0 ? (
-					<section
-						aria-labelledby="projects-heading"
-						className="mx-auto flex w-full max-w-[900px] flex-col gap-7"
-					>
-						<h2
-							id="projects-heading"
-							className="text-[28px] font-semibold leading-[1.2] tracking-[-0.3px]"
-						>
-							Featured projects
-						</h2>
-
-						<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-							{projects.map((project) => (
-								<a
-									key={project.href}
-									href={project.href}
-									target="_blank"
-									rel="noreferrer"
-									className="flex flex-col gap-4 rounded-[15px] border border-border p-4 transition hover:border-foreground"
-								>
-									{project.image ? (
-										<img
-											src={project.image}
-											alt={project.imageAlt ?? project.title}
-											loading="lazy"
-											className="aspect-[16/10] w-full rounded-[10px] object-cover"
-										/>
-									) : (
-										<div className="aspect-[16/10] w-full rounded-[10px] bg-surface" />
-									)}
-									<div className="flex flex-col gap-1.5 px-1 pb-1">
-										<div className="text-xl font-semibold">{project.title}</div>
-										<div className="text-base leading-relaxed text-subtle-foreground">
-											{project.description}
-										</div>
-									</div>
-								</a>
-							))}
-						</div>
-					</section>
-				) : null}
 			</div>
 
 			<Footer />

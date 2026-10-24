@@ -17,14 +17,6 @@ export type BioHighlight = {
 	description: string;
 };
 
-export type ProjectItem = {
-	title: string;
-	description: string;
-	href: string;
-	image?: string;
-	imageAlt?: string;
-};
-
 export const profileImage = "/assets/images/jim-van-duijsen-profile-2.jpg";
 
 export const bio = {
@@ -85,14 +77,3 @@ export const links: HomeLinkItem[] = [
 		isExternal: false,
 	},
 ];
-
-// Featured projects shown on the home page. The section stays hidden while
-// this list is empty. Add two entries to publish it, for example:
-// {
-// 	title: "Project name",
-// 	description: "One or two lines about the project.",
-// 	href: "https://example.com",
-// 	image: "/assets/images/project-name.png",
-// 	imageAlt: "Screenshot of Project name",
-// },
-export const projects: ProjectItem[] = [];
