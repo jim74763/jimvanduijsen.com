@@ -2,6 +2,10 @@ document.addEventListener("alpine:init", () => {
 	Alpine.store("theme", {
 		isDark: document.documentElement.classList.contains("dark"),
 
+		set(dark) {
+			if (dark !== this.isDark) this.toggle();
+		},
+
 		toggle() {
 			const root = document.documentElement;
 			root.classList.add("theme-switching");

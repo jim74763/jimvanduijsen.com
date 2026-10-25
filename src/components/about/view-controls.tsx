@@ -1,3 +1,5 @@
+import { GlassSwitch } from "../glass-switch.js";
+
 const tabs = [
 	{ mode: "about", label: "About" },
 	{ mode: "cv", label: "CV" },
@@ -14,22 +16,22 @@ export const ViewControls = () => (
 		>
 			Download PDF
 		</button>
-		<nav
-			aria-label="Page view"
-			className="ml-auto inline-flex rounded-full border border-border p-1 text-sm font-semibold tracking-tight"
-		>
-			{tabs.map((tab) => (
-				<button
-					key={tab.mode}
-					type="button"
-					x-on:click={`$store.view.set('${tab.mode}')`}
-					x-bind:aria-pressed={`$store.view.is('${tab.mode}')`}
-					x-bind:class={`$store.view.is('${tab.mode}') && 'bg-foreground! text-background!'`}
-					className="rounded-full px-5 py-1.5 text-muted-foreground transition hover:text-foreground"
-				>
-					{tab.label}
-				</button>
-			))}
-		</nav>
+		<GlassSwitch
+			kind="view"
+			label="Page view"
+			className="ml-auto"
+			options={[
+				{
+					value: tabs[0].mode,
+					label: tabs[0].label,
+					onClick: `$store.view.set('${tabs[0].mode}')`,
+				},
+				{
+					value: tabs[1].mode,
+					label: tabs[1].label,
+					onClick: `$store.view.set('${tabs[1].mode}')`,
+				},
+			]}
+		/>
 	</div>
 );
