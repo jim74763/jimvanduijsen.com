@@ -14,6 +14,7 @@ document.documentElement.dataset.viewPending = "";
 export const ViewInit = () => (
 	<>
 		<script dangerouslySetInnerHTML={{ __html: script }} />
+		<script defer src="/js/view-store.js" />
 		<noscript>
 			<style>{"[data-cv-only]{display:none}"}</style>
 		</noscript>

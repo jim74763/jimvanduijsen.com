@@ -3,9 +3,20 @@ import type { Child } from "hono/jsx";
 const SITE_URL = "https://www.jimvanduijsen.com";
 const OG_IMAGE = `${SITE_URL}/assets/og-image.png`;
 
-const THEME_INIT_SCRIPT = `try{var t=localStorage.getItem("theme");if(t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches)){document.documentElement.classList.add("dark")}}catch(e){}`;
+const THEME_INIT_SCRIPT = `
+try {
+	const savedTheme = localStorage.getItem("theme");
+	const useDarkTheme =
+		savedTheme === "dark" ||
+		(savedTheme !== "light" && matchMedia("(prefers-color-scheme: dark)").matches);
 
-const THEME_TOGGLE_SCRIPT = `(function(){var b=document.getElementById("theme-toggle"),l=document.getElementById("theme-toggle-label");if(!b||!l)return;var r=document.documentElement;function s(){var d=r.classList.contains("dark");b.setAttribute("aria-pressed",d?"true":"false");l.textContent=d?"Light mode":"Dark mode"}s();b.addEventListener("click",function(){r.classList.add("theme-switching");var d=r.classList.toggle("dark");void r.offsetWidth;r.classList.remove("theme-switching");try{localStorage.setItem("theme",d?"dark":"light")}catch(e){}s()})})();`;
+	if (useDarkTheme) {
+		document.documentElement.classList.add("dark");
+	}
+} catch {
+	// Storage may be unavailable (for example, in a restricted browser).
+}
+`;
 
 type PageOptions = {
 	title: string;
@@ -80,7 +91,7 @@ export const renderPage = ({
 				<script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
 				{metadata}
 				<link rel="stylesheet" href="/assets/app.css" />
-				<script defer src="/assets/alpine-stores.js" />
+				<script defer src="/js/theme-store.js" />
 				<script
 					defer
 					src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js"
@@ -94,10 +105,7 @@ export const renderPage = ({
 					data-host-url="/u"
 				/>
 			</head>
-			<body className="bg-background text-foreground">
-				{children}
-				<script dangerouslySetInnerHTML={{ __html: THEME_TOGGLE_SCRIPT }} />
-			</body>
+			<body className="bg-background text-foreground">{children}</body>
 		</html>
 	);
 };
