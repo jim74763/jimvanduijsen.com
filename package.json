@@ -1,7 +1,7 @@
 {
   "name": "jimvanduijsen.com",
   "type": "module",
-  "packageManager": "pnpm@12.3.4",
+  "packageManager": "pnpm@12.15.0",
   "scripts": {
     "deps": "SHARP_IGNORE_GLOBAL_LIBVIPS=1 pnpm install",
     "build:css": "tailwindcss -i ./src/styles.css -o ./public/assets/app.css --minify",
@@ -15,6 +15,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "cn": "^0.5.0",
     "hono": "^4.12.18",
     "lucide-react": "^1.14.0"
   },

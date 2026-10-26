@@ -3,20 +3,22 @@ import type { AboutItem } from "../../content/about.js";
 export const ItemList = ({ items }: { items: AboutItem[] }) => (
 	<ul className="w-full">
 		{items.map((item) => (
-			<li key={item.title} className="border-b border-black/15 py-5">
+			<li key={item.title} className="border-b border-border py-5">
 				<div className="flex items-baseline justify-between gap-4">
 					<h3 className="text-xl font-semibold tracking-tight">{item.title}</h3>
 					{item.period ? (
-						<span className="shrink-0 text-base font-medium text-black/60">
+						<span className="shrink-0 text-base font-medium text-muted-foreground">
 							{item.period}
 						</span>
 					) : null}
 				</div>
 				{item.subtitle ? (
-					<p className="text-base font-medium text-black/60">{item.subtitle}</p>
+					<p className="text-base font-medium text-muted-foreground">
+						{item.subtitle}
+					</p>
 				) : null}
 				{item.body || item.bullets ? (
-					<div className="mt-2 max-w-xl text-base font-medium leading-relaxed text-black/65">
+					<div className="mt-2 max-w-xl text-base font-medium leading-relaxed text-muted-foreground">
 						{item.body ? <p>{item.body}</p> : null}
 						{item.bullets ? (
 							<ul className="mt-3 list-disc space-y-2 pl-5">
@@ -32,7 +34,7 @@ export const ItemList = ({ items }: { items: AboutItem[] }) => (
 						{item.link ? (
 							<a
 								href={item.link}
-								className="text-black transition hover:opacity-60"
+								className="text-foreground transition hover:opacity-60"
 							>
 								{item.linkLabel ?? "Visit"}
 							</a>
@@ -40,7 +42,7 @@ export const ItemList = ({ items }: { items: AboutItem[] }) => (
 						{item.extraLink ? (
 							<a
 								href={item.extraLink.href}
-								className="text-black transition hover:opacity-60"
+								className="text-foreground transition hover:opacity-60"
 							>
 								{item.extraLink.label}
 							</a>

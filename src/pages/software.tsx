@@ -7,7 +7,7 @@ import { softwareSchema } from "../utils/schema.org/software.js";
 
 const Software = () => {
 	return (
-		<main className="relative flex min-h-screen flex-col overflow-x-hidden bg-white text-black">
+		<main className="relative flex min-h-screen flex-col overflow-x-hidden bg-background text-foreground">
 			<JsonLd schema={softwareSchema(softwareCategories)} />
 			<Header />
 			<section className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-6 pb-28 pt-[104px] sm:px-12 sm:pb-32">
@@ -15,7 +15,7 @@ const Software = () => {
 					<h1 className="mb-3 text-3xl font-semibold tracking-tight">
 						Software I recommend
 					</h1>
-					<p className="text-base font-medium leading-relaxed text-black/65">
+					<p className="text-base font-medium leading-relaxed text-muted-foreground">
 						Tools and services I actually use, grouped by category. None of
 						these are affiliate links.
 					</p>
@@ -28,7 +28,7 @@ const Software = () => {
 								{category.name}
 							</h2>
 
-							<ul className="flex flex-col divide-y divide-black/10 border-t border-black/10">
+							<ul className="flex flex-col divide-y divide-border border-t border-border">
 								{category.items.map((item) => (
 									<li key={item.href}>
 										<a
@@ -43,13 +43,13 @@ const Software = () => {
 												loading="lazy"
 												width="32"
 												height="32"
-												className="h-8 w-8 flex-shrink-0 rounded-md border border-black/10 object-contain"
+												className="h-8 w-8 flex-shrink-0 rounded-md border border-border object-contain"
 											/>
 											<span className="min-w-0 flex-1">
-												<span className="block text-base font-semibold tracking-tight text-black">
+												<span className="block text-base font-semibold tracking-tight text-foreground">
 													{item.name}
 												</span>
-												<span className="block text-sm font-medium leading-relaxed text-black/65">
+												<span className="block text-sm font-medium leading-relaxed text-muted-foreground">
 													{item.description}
 												</span>
 											</span>

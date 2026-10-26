@@ -1,3 +1,4 @@
+import { cn } from "cn";
 import {
 	education,
 	experience,
@@ -15,7 +16,10 @@ const SectionTitle = ({
 	first?: boolean;
 }) => (
 	<h2
-		className={`mb-2 text-3xl font-semibold tracking-tight ${first ? "" : "mt-14"}`}
+		className={cn(
+			"mb-2 text-3xl font-semibold tracking-tight",
+			!first && "mt-14",
+		)}
 	>
 		{children}
 	</h2>
@@ -24,7 +28,7 @@ const SectionTitle = ({
 export const AboutView = () => (
 	<div data-about-only x-show="$store.view.is('about')">
 		<header className="mb-14 max-w-xl">
-			<div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full border border-black/10 relative overflow-hidden">
+			<div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full border border-border relative overflow-hidden">
 				<img
 					src="/assets/images/jim-mirror-avatar.png"
 					alt="jim van duijsen"
@@ -37,13 +41,13 @@ export const AboutView = () => (
 			{story.paragraphs.map((paragraph) => (
 				<p
 					key={paragraph}
-					className="text-base font-medium leading-relaxed text-black/65"
+					className="text-base font-medium leading-relaxed text-muted-foreground"
 				>
 					{paragraph}
 				</p>
 			))}
-			<p className="mt-3 text-base font-medium leading-relaxed text-black/65">
-				<span className="text-black">Languages:</span> {story.languages}
+			<p className="mt-3 text-base font-medium leading-relaxed text-muted-foreground">
+				<span className="text-foreground">Languages:</span> {story.languages}
 			</p>
 		</header>
 
