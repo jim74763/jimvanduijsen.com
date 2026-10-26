@@ -6,6 +6,7 @@ import {
 	skills,
 	story,
 } from "../../content/about.js";
+import { profileImage } from "../../content/home.js";
 import { ItemList } from "./item-list.js";
 
 const SectionTitle = ({
@@ -30,9 +31,9 @@ export const AboutView = () => (
 		<header className="mb-14 max-w-xl">
 			<div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full border border-border relative overflow-hidden">
 				<img
-					src="/assets/images/jim-mirror-avatar.png"
+					src={profileImage}
 					alt="jim van duijsen"
-					className="absolute inset-0 object-cover"
+					className="absolute inset-0 h-full w-full object-cover object-top"
 				/>
 			</div>
 
