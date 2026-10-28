@@ -92,6 +92,7 @@ export const renderPage = ({
 				{metadata}
 				<link rel="stylesheet" href="/assets/app.css" />
 				<script defer src="/js/theme-store.js" />
+				<script defer src="/js/glass-switch.js" />
 				<script
 					defer
 					src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js"
