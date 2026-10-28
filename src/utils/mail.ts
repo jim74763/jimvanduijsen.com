@@ -35,7 +35,7 @@ export const sendContactEmail = async (
 		{
 			from: {
 				name: "jimvanduijsen.com",
-				email: env.CONTACT_FROM_EMAIL || env.SMTP_USER,
+				email: env.CONTACT_FROM_EMAIL!,
 			},
 			to: env.CONTACT_TO_EMAIL,
 			reply: { name: oneLine(name), email: oneLine(email) },
