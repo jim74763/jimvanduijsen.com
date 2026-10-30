@@ -37,7 +37,8 @@ const Contact = () => {
 					</div>
 				</header>
 				<form
-					id="contact-form"
+					x-data="contactForm"
+					{...{ "x-on:submit.prevent": "submit" }}
 					method="post"
 					action="/contact"
 					className="flex w-full flex-col gap-5 lg:flex-1"
@@ -95,12 +96,13 @@ const Contact = () => {
 					</div>
 					<button
 						type="submit"
+						{...{ "x-bind:disabled": "sending" }}
 						className="w-fit cursor-pointer rounded-md bg-black px-6 py-2.5 text-base font-medium text-white transition hover:opacity-80 disabled:opacity-50"
 					>
 						Submit
 					</button>
 					<p
-						id="contact-status"
+						x-text="status"
 						role="status"
 						className="text-base font-medium text-black/65"
 					/>
@@ -108,23 +110,28 @@ const Contact = () => {
 				<script
 					dangerouslySetInnerHTML={{
 						__html: `
-const form = document.getElementById("contact-form");
-const status = document.getElementById("contact-status");
-form.addEventListener("submit", async (event) => {
-	event.preventDefault();
-	const button = form.querySelector("button");
-	button.disabled = true;
-	status.textContent = "Sending...";
-	try {
-		const response = await fetch(form.action, { method: "POST", body: new FormData(form) });
-		if (!response.ok) throw new Error();
-		form.reset();
-		status.textContent = "Thanks, your message has been sent. I'll get back to you soon.";
-	} catch {
-		status.textContent = "Something went wrong. Please try again.";
-	} finally {
-		button.disabled = false;
-	}
+document.addEventListener("alpine:init", () => {
+	Alpine.data("contactForm", () => ({
+		sending: false,
+		status: "",
+		async submit() {
+			this.sending = true;
+			this.status = "Sending...";
+			try {
+				const response = await fetch(this.$el.action, {
+					method: "POST",
+					body: new FormData(this.$el),
+				});
+				if (!response.ok) throw new Error();
+				this.$el.reset();
+				this.status = "Thanks, your message has been sent. I'll get back to you soon.";
+			} catch {
+				this.status = "Something went wrong. Please try again.";
+			} finally {
+				this.sending = false;
+			}
+		},
+	}));
 });`,
 					}}
 				/>
@@ -142,6 +149,7 @@ export const contactPage = () => {
 		description:
 			"Reach out to Jim van Duijsen for custom AI agent builds, automation workflows, or freelance web development. Available for new projects.",
 		canonicalPath: "/contact",
+		metadata: <script defer src="/assets/alpine.min.js" />,
 		children: <Contact />,
 	});
 };
