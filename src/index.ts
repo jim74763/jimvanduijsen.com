@@ -1,14 +1,14 @@
 import { Hono } from "hono";
+import type { AppBindings } from "./config.js";
 import { handleContact } from "./handlers/contact.js";
 import { aboutPage } from "./pages/about.js";
 import { contactPage } from "./pages/contact.js";
 import { homePage } from "./pages/home.js";
 import { softwarePage } from "./pages/software.js";
-import type { MailEnv } from "./utils/mail.js";
 import { sitemap } from "./utils/sitemap.js";
 import { proxyUmami } from "./utils/umami-proxy.js";
 
-const app = new Hono<{ Bindings: MailEnv }>();
+const app = new Hono<{ Bindings: AppBindings }>();
 
 app.get("/sitemap.xml", (c) =>
 	c.text(sitemap(), 200, { "Content-Type": "application/xml" }),

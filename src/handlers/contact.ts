@@ -1,7 +1,8 @@
 import type { Context } from "hono";
-import { type MailEnv, sendContactEmail } from "../utils/mail.js";
+import { type AppBindings, getConfig } from "../config.js";
+import { sendContactEmail } from "../utils/mail.js";
 
-export const handleContact = async (c: Context<{ Bindings: MailEnv }>) => {
+export const handleContact = async (c: Context<{ Bindings: AppBindings }>) => {
 	const body = await c.req.parseBody();
 	const field = (key: string) =>
 		typeof body[key] === "string" ? body[key].trim() : "";
@@ -24,7 +25,7 @@ export const handleContact = async (c: Context<{ Bindings: MailEnv }>) => {
 	}
 
 	try {
-		await sendContactEmail(c.env, { name, email, message });
+		await sendContactEmail(getConfig(c.env), { name, email, message });
 		return c.json({ ok: true });
 	} catch (error) {
 		console.error("contact form send failed", error);
