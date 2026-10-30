@@ -1,4 +1,6 @@
 import { Hono } from "hono";
+import type { AppBindings } from "./config.js";
+import { handleContact } from "./handlers/contact.js";
 import { aboutPage } from "./pages/about.js";
 import { contactPage } from "./pages/contact.js";
 import { homePage } from "./pages/home.js";
@@ -6,7 +8,7 @@ import { softwarePage } from "./pages/software.js";
 import { sitemap } from "./utils/sitemap.js";
 import { proxyUmami } from "./utils/umami-proxy.js";
 
-const app = new Hono();
+const app = new Hono<{ Bindings: AppBindings }>();
 
 app.get("/sitemap.xml", (c) =>
 	c.text(sitemap(), 200, { "Content-Type": "application/xml" }),
@@ -15,6 +17,8 @@ app.get("/sitemap.xml", (c) =>
 app.get("/", (c) => c.html(homePage()));
 
 app.get("/contact", (c) => c.html(contactPage()));
+
+app.post("/contact", handleContact);
 
 app.get("/about", (c) => c.html(aboutPage()));
 

@@ -1,3 +1,5 @@
+import { ContactForm } from "../components/contact/contact-form.js";
+import { ContactIntro } from "../components/contact/contact-intro.js";
 import { Footer } from "../components/footer.js";
 import { Header } from "../components/header.js";
 import { JsonLd } from "../components/json-ld.js";
@@ -10,23 +12,8 @@ const Contact = () => {
 			<JsonLd schema={contactSchema} />
 			<Header />
 			<section className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-10 px-6 pb-16 pt-[104px] sm:px-12 lg:flex-row lg:items-start lg:gap-16">
-				<header className="lg:sticky lg:top-[104px] lg:w-[360px] lg:shrink-0">
-					<h1 className="mb-3 text-3xl font-semibold tracking-tight">
-						Get in touch
-					</h1>
-					<p className="text-base font-medium leading-relaxed text-muted-foreground">
-						Interested in working together? Fill out the form and I'll get back
-						to you.
-					</p>
-				</header>
-				<div className="h-[650px] w-full overflow-hidden lg:flex-1">
-					<iframe
-						src="https://n8n.app.jimvd.xyz/form/d2f958e2-a7e3-4449-96d6-9921f098f6ef"
-						title="contact form"
-						allowFullScreen
-						className="h-full w-full border-0"
-					/>
-				</div>
+				<ContactIntro />
+				<ContactForm />
 			</section>
 			<Footer />
 		</main>
@@ -41,6 +28,7 @@ export const contactPage = () => {
 		description:
 			"Reach out to Jim van Duijsen for custom AI agent builds, automation workflows, or freelance web development. Available for new projects.",
 		canonicalPath: "/contact",
+		metadata: <script defer src="/js/contact-form.js" />,
 		children: <Contact />,
 	});
 };
