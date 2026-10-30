@@ -1,9 +1,9 @@
-import type { ProjectItem } from "../../content/about.js";
+import type { AboutItem } from "../../content/about.js";
 import { personEntity } from "./entities.js";
 
 const SITE_URL = "https://www.jimvanduijsen.com";
 
-export const aboutSchema = (projects: ProjectItem[]) =>
+export const aboutSchema = (projects: AboutItem[]) =>
 	JSON.stringify({
 		"@context": "https://schema.org",
 		"@graph": [
@@ -18,7 +18,7 @@ export const aboutSchema = (projects: ProjectItem[]) =>
 			{
 				"@type": "ItemList",
 				"@id": `${SITE_URL}/about#projects`,
-				name: "Projects Jim van Duijsen has worked on",
+				name: "Featured projects by Jim van Duijsen",
 				itemListElement: projects.map((project, index) => ({
 					"@type": "ListItem",
 					position: index + 1,

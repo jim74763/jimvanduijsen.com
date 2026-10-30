@@ -3,11 +3,25 @@ import type { Child } from "hono/jsx";
 const SITE_URL = "https://www.jimvanduijsen.com";
 const OG_IMAGE = `${SITE_URL}/assets/og-image.png`;
 
+const THEME_INIT_SCRIPT = `
+try {
+	const savedTheme = localStorage.getItem("theme");
+	const useDarkTheme =
+		savedTheme === "dark" ||
+		(savedTheme !== "light" && matchMedia("(prefers-color-scheme: dark)").matches);
+
+	if (useDarkTheme) {
+		document.documentElement.classList.add("dark");
+	}
+} catch {
+	// Storage may be unavailable (for example, in a restricted browser).
+}
+`;
+
 type PageOptions = {
 	title: string;
 	description?: string;
 	canonicalPath?: string;
-	bgDark?: boolean;
 	metadata?: Child;
 	children: Child;
 };
@@ -16,7 +30,6 @@ export const renderPage = ({
 	title,
 	description,
 	canonicalPath = "/",
-	bgDark,
 	metadata,
 	children,
 }: PageOptions) => {
@@ -65,9 +78,26 @@ export const renderPage = ({
 				) : null}
 				<meta name="twitter:image" content={OG_IMAGE} />
 				<meta name="twitter:image:alt" content="Jim van Duijsen" />
-				{bgDark ? <meta name="theme-color" content="#666666" /> : null}
+				<meta
+					name="theme-color"
+					content="#ffffff"
+					media="(prefers-color-scheme: light)"
+				/>
+				<meta
+					name="theme-color"
+					content="#0d0d0d"
+					media="(prefers-color-scheme: dark)"
+				/>
+				<script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
 				{metadata}
 				<link rel="stylesheet" href="/assets/app.css" />
+				<script defer src="/js/theme-store.js" />
+				<script
+					defer
+					src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js"
+					integrity="sha384-9Ax3MmS9AClxJyd5/zafcXXjxmwFhZCdsT6HJoJjarvCaAkJlk5QDzjLJm+Wdx5F"
+					crossorigin="anonymous"
+				/>
 				<script
 					defer
 					src="/u/script.js"
@@ -75,7 +105,7 @@ export const renderPage = ({
 					data-host-url="/u"
 				/>
 			</head>
-			<body className={bgDark ? "bg-black" : undefined}>{children}</body>
+			<body className="bg-background text-foreground">{children}</body>
 		</html>
 	);
 };

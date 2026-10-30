@@ -29,6 +29,19 @@ export const Footer = () => {
 						{item.label}
 					</span>
 				))}
+
+				<button
+					type="button"
+					x-data
+					x-on:click="$store.theme.toggle()"
+					x-bind:aria-pressed="$store.theme.isDark"
+					aria-label="Switch between light and dark mode"
+					className="cursor-pointer whitespace-nowrap rounded-full border border-current/20 px-3.5 py-1 text-base font-medium leading-[1.45] tracking-[-0.08px] transition-colors hover:border-current/60"
+				>
+					<span x-text="$store.theme.isDark ? 'Light mode' : 'Dark mode'">
+						Dark mode
+					</span>
+				</button>
 			</nav>
 		</footer>
 	);

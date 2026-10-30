@@ -13,7 +13,7 @@ export const navLinks: HeaderNavLink[] = [
 		href: "/contact",
 	},
 	{
-		label: "About",
+		label: "About (CV)",
 		href: "/about",
 	},
 	{
