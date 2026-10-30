@@ -107,34 +107,6 @@ const Contact = () => {
 						className="text-base font-medium text-muted-foreground"
 					/>
 				</form>
-				<script
-					dangerouslySetInnerHTML={{
-						__html: `
-document.addEventListener("alpine:init", () => {
-	Alpine.data("contactForm", () => ({
-		sending: false,
-		status: "",
-		async submit() {
-			this.sending = true;
-			this.status = "Sending...";
-			try {
-				const response = await fetch(this.$el.action, {
-					method: "POST",
-					body: new FormData(this.$el),
-				});
-				if (!response.ok) throw new Error();
-				this.$el.reset();
-				this.status = "Thanks, your message has been sent. I'll get back to you soon.";
-			} catch {
-				this.status = "Something went wrong. Please try again.";
-			} finally {
-				this.sending = false;
-			}
-		},
-	}));
-});`,
-					}}
-				/>
 			</section>
 			<Footer />
 		</main>
@@ -149,6 +121,7 @@ export const contactPage = () => {
 		description:
 			"Reach out to Jim van Duijsen for custom AI agent builds, automation workflows, or freelance web development. Available for new projects.",
 		canonicalPath: "/contact",
+		metadata: <script defer src="/js/contact-form.js" />,
 		children: <Contact />,
 	});
 };
